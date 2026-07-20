@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+    </head>
+    <body>
+        <p> Hello, world!</p>
+        <h1> This is a website that's being updated live :D</h1>
+        <h2> Hows it going {{ username }}?</h2>
+        <form action="/add" method="POST">
+            <input type="text" autocomplete="off" id="text-entry" name="entry"> </input>
+            <button type="submit"> Click here lol!</button>
+            
+        </form>
+        <h1>Current count at {{counter}} !</h1>
+        {% for item in mylist %}
+        <p> {{item}} </p>
+        {% endfor %}
+    </body>
+</html>
