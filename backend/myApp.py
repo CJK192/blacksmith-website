@@ -9,7 +9,7 @@ CORS(app)
 
 @app.route("/api/queue", methods=["GET"])
 def get_queue():
-    return jsonify({"count": count, "queue": queue})
+    return jsonify({"queue": queue})
 
 @app.route("/api/add", methods=["POST"])
 def add():
@@ -17,7 +17,7 @@ def add():
     data = request.get_json()
     count += 1
     queue.append(data.get("entry"))
-    return jsonify({"count": count, "queue": queue})
+    return jsonify({"queue": queue})
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
