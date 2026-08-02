@@ -5,7 +5,7 @@ count = 0
 queue = []
 
 app = Flask(__name__)
-app = CORS(app)
+CORS(app)
 
 @app.route("/api/queue", methods=["GET"])
 def get_queue():
