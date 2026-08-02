@@ -50,6 +50,8 @@ button, h1, p, h2, ul, li {
 }
 
 /* This is for the list elements on a NavBar component */
-.NavBar li {
+.NavBar li, a {
   padding-right: 3rem;
+  text-decoration: none;
 }
+

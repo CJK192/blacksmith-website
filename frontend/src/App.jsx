@@ -1,34 +1,23 @@
-import Button from './components/Button'
-import Header from './components/Header'
 import NavBar from './components/NavBar'
-import { useState, useEffect } from 'react'
+import Home from './Pages/Home'
+import Support from './Pages/Support'
+import About from './Pages/About'
+
+import { Routes, Route } from 'react-router-dom'
+
 
 function App()
 {
-  const [darkMode, setDarkMode] = useState(false);
-   
-  useEffect(() => {
+  return <div>
 
-    if(darkMode)
-    {
-      document.documentElement.classList.add("dark-mode");
-    }
-    else
-    {
-      document.documentElement.classList.remove("dark-mode");
-    }
-    
+  <NavBar />
+  <Routes>
+    <Route path = '/' element={<Home />}/>
+    <Route path = '/support' element={<Support />}/>
+    <Route path = '/about' element={<About />}/>
+  </Routes>
 
-  }, [darkMode]);
-
-   return (
-    <div>
-    <Header></Header>
-    <NavBar></NavBar>
-    <button onClick={() => setDarkMode(!darkMode)}>
-      Toggle {darkMode ? "Light" : "Dark"} Mode
-    </button></div>
-  );
+  </div>
 }
 
 export default App

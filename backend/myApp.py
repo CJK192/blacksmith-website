@@ -1,32 +1,23 @@
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, jsonify
+from flask_cors import CORS
 
 count = 0
 queue = []
 
 app = Flask(__name__)
+app = CORS(app)
 
-@app.route("/", methods=['POST', 'GET'])
-def home():
-    global count
-    global queue
-    que = queue
-    cnt = count
-    name = "John Smith"
-    return render_template("index.html", username = name, counter = cnt, mylist = que)
-@app.route("/user/<my_name>")
-def login(my_name):
-    return render_template("index.html")
+@app.route("/api/queue", methods=["GET"])
+def get_queue():
+    return jsonify({"count": count, "queue": queue})
 
-@app.route("/add", methods=["POST"])
+@app.route("/api/add", methods=["POST"])
 def add():
-    global count
-    global queue
+    global count, queue
+    data = request.get_json()
     count += 1
-    queue.append(request.form.get("entry"))
-    for thing in queue:
-        print(thing)
-    print("Button pushed by user!")
-    return redirect(url_for("home"))
+    queue.append(data.get("entry"))
+    return jsonify({"count": count, "queue": queue})
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
