@@ -5,12 +5,13 @@ import About from './Pages/About'
 import Cart from './Pages/Cart'
 import ItemPage from './Pages/ItemPage'
 
-import { Routes, Route } from 'react-router-dom'
 
+import { Routes, Route } from 'react-router-dom'
 
 function App()
 {
   return <div>
+
 
   <NavBar />
   <Routes>
