@@ -1,7 +1,13 @@
+import { Link, useResolvedPath, useMatch} from 'react-router-dom'
+
+
+
 function Header()
 {
+    
+
     return <div className="header">
-        <h1> Gunter's Blacksmithing </h1>
+        <h1> Gunter's Blacksmithing  </h1>
 
         </div>
 }

@@ -58,21 +58,57 @@ button, h1, p, h2, ul, li {
   justify-content: space-evenly;
 }
 
+.catalouge {
+  display : inline-block;
+  vertical-align: top;
+  background: rgb(93, 93, 93);
+  border: solid;
+  border-color: white;
+  margin-right: auto;
+  border-width: 0.4vw;
+  margin: 0.5vw;
+  width: 65vw;
+
+}
+
+.catalouge h1, h2, h3, li, p, a {
+  font-size: 5vw;
+}
+
+.to-do-list {
+  display : inline-block;
+  vertical-align: top;
+  background: rgb(93, 93, 93);
+  border: solid;
+  border-color: white;
+  border-width: 0.4vw;
+  margin-right: auto;
+  margin: 0.5vw;
+  width: 28vw;
+}
+
+.to-do-list h1, h2, h3, li, p, a {
+  font-size: 3vw;
+}
+
+/* ai ass comment vvv
 /* This is for the list elements on a NavBar component */
 .NavBar li, a {
   border: solid;
   border-color: rgb(255, 255, 255);
   text-decoration: none;
   width: 100%;
-  height: 100%;
-  font-size: 6vw;
+  height: 15vw;
+  align-content: center;
+  font-size: 7vw;
   text-align: center;
   padding: 0;
   border-width: 0.5vw;
   margin: 0;
- 
-  
-  
+  background: #0e0e0e;
+}
 
+#selected {
+  background: #ffdd00;
 }
 
