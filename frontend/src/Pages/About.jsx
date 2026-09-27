@@ -1,3 +1,8 @@
+import member1 from '../assets/team/member1.png'
+import member2 from '../assets/team/member2.png'
+import member3 from '../assets/team/member3.png'
+import member4 from '../assets/team/member4.png'
+
 function About() {
   return (
     <div style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
@@ -65,27 +70,27 @@ function About() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', backgroundColor: '#fff' }}>
             {[
               {
-                name: 'Team Member 1',
+                name: 'Cole Keller',
                 role: 'Senior Craftsperson',
-                image: 'https://via.placeholder.com/250x250?text=Member+1',
+                image: member1,
                 description: 'Expert in traditional techniques.'
               },
               {
-                name: 'Team Member 2',
+                name: 'Joshua Lobert',
                 role: 'Craftsperson',
-                image: 'https://via.placeholder.com/250x250?text=Member+2',
+                image: member2,
                 description: 'Dedicated to quality and precision.'
               },
               {
-                name: 'Team Member 3',
+                name: 'Felix Wu',
                 role: 'Craftsperson',
-                image: 'https://via.placeholder.com/250x250?text=Member+3',
+                image: member3,
                 description: 'Bringing passion to every project.'
               },
               {
-                name: 'Team Member 4',
+                name: 'Markus Noll',
                 role: 'Craftsperson',
-                image: 'https://via.placeholder.com/250x250?text=Member+4',
+                image: member4,
                 description: 'Committed to excellence.'
               }
             ].map((member, idx) => (
@@ -102,8 +107,9 @@ function About() {
                   alt={member.name}
                   style={{
                     width: '100%',
-                    height: '140px',
+                    aspectRatio: '1',
                     objectFit: 'cover',
+                    objectPosition: 'top',
                     display: 'block',
                     marginBottom: '0.75rem'
                   }}

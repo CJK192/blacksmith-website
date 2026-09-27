@@ -112,3 +112,19 @@ button, h1, p, h2, ul, li {
   background: #ffdd00;
 }
 
+
+.cart-button {
+  background-color: #d32f2f;
+  color: white;
+  border: 3px solid var(--text-color);
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.cart-button:hover {
+  background-color: #a31f1f;
+}
+
+.cart-button:active {
+  background-color: #7a1515;
+  transform: scale(0.95);
+}

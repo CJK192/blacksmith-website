@@ -7,6 +7,7 @@ import ItemPage from './Pages/ItemPage'
 
 
 import { Routes, Route } from 'react-router-dom'
+import SwordPage from './Pages/SwordPage'
 
 function App()
 {
@@ -20,6 +21,7 @@ function App()
     <Route path = '/about' element={<About />}/>
     <Route path = '/cart' element={<Cart />}/>
     <Route path = '/item' element={<ItemPage />}/>
+    <Route path = '/sword' element={<SwordPage />}/> 
   </Routes>
 
   </div>

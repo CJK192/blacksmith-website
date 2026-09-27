@@ -9,7 +9,7 @@ function Home()
     return <div>
             <div className="catalouge">
             <center><h1> <u> Check out our inventory:</u></h1></center>
-            <Link to="/item"><button>Item Page</button></Link>
+            <Link to="/sword"><button>Item Page</button></Link>
             <ToDoList></ToDoList>
              </div>
                 <div className="to-do-list">
