@@ -21,7 +21,7 @@ function Home() {
                 </svg>
               </span>
               <span className="home-item-name">Item {item}</span>
-              <span className="home-item-detail">View item <span aria-hidden="true">→</span></span>
+              <span className="home-item-detail">View Item</span>
             </Link>
           ))}
         </div>
