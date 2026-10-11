@@ -1,9 +1,61 @@
+import { Link } from 'react-router-dom'
+import { useCart } from '../CartContext'
+import AnvilIcon from '../components/AnvilIcon'
+import './Cart.css'
+
 function Cart()
 {
-    return <div>
-    <h1> This is the Cart page!</h1>
-    
-             </div>
+    const { cart, changeQuantity, removeFromCart } = useCart();
+    const itemCount = cart.reduce((total, item) => total + item.quantity, 0); {/*adds up all the quantities*/}
+    const subtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0); {/*adds up price x quantity*/}
+
+    {/*nothing added yet*/}
+    if (cart.length === 0)
+    {
+        return <main className="cart-page">
+            <h1>Your Cart</h1>
+            <section className="cart-panel cart-empty">
+                <p>Your cart is empty.</p>
+                <Link to="/" className="cart-shop-link">Back to shop</Link>
+            </section>
+        </main>
+    }
+
+    return <main className="cart-page">
+        <h1>Your Cart</h1>
+
+        {/*one row per item + color*/}
+        <section className="cart-panel">
+            {cart.map((item) => (
+                <div className="cart-row" key={item.name + item.color}>
+                    <div className="cart-picture" aria-hidden="true">
+                        <AnvilIcon />
+                    </div>
+
+                    <div className="cart-info">
+                        <h2>{item.name}</h2>
+                        <p>Color: {item.color}</p>
+                        <p>${item.price.toFixed(2)} each</p>
+                    </div>
+
+                    <div className="cart-quantity">
+                        <button onClick={() => changeQuantity(item.name, item.color, -1)} aria-label={'One less ' + item.name}>−</button>
+                        <span>{item.quantity}</span>
+                        <button onClick={() => changeQuantity(item.name, item.color, 1)} aria-label={'One more ' + item.name}>+</button>
+                    </div>
+
+                    <p className="cart-row-total">${(item.price * item.quantity).toFixed(2)}</p>
+
+                    <button className="cart-remove" onClick={() => removeFromCart(item.name, item.color)}>Remove</button>
+                </div>
+            ))}
+        </section>
+
+        {/*total at the bottom*/}
+        <section className="cart-panel cart-subtotal">
+            <p>Subtotal ({itemCount} {itemCount === 1 ? 'item' : 'items'}): <strong>${subtotal.toFixed(2)}</strong></p>
+        </section>
+    </main>
 }
 
 export default Cart;

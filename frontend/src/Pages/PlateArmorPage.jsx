@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useCart } from '../CartContext';
 
 function PlateArmorPage() {
+  const { addToCart } = useCart(); {/*opens the shared cart*/}
   const price = "67.00"; // add price here
   const [selectedColor, setSelectedColor] = useState('Black'); {/*sets default color*/}
 
@@ -76,6 +78,7 @@ function PlateArmorPage() {
 
       <p>Item details will go here</p>
       <button className="cart-button"
+      onClick={() => addToCart('Plate Armor', price, selectedColor)}
       style={{width: '100%', padding: '2.5rem 3.5rem', borderRadius: '0px', cursor: 'pointer' , fontSize: '3rem', borderWidth:"0.5rem", color:'white'}}
       >Add to Cart</button>
       </div>

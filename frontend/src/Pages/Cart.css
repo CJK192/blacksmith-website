@@ -1,0 +1,179 @@
+/* cart page - same grey panels + white borders as the home page */
+.cart-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+  color: var(--text-color);
+  font-family: var(--font);
+}
+
+.cart-page * {
+  box-sizing: border-box;
+}
+
+.cart-page h1 {
+  margin: 0 0 1rem;
+  font-size: 2.5rem;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.cart-panel {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 0.4vw solid var(--text-color);
+  background: rgb(93, 93, 93);
+}
+
+/* one item */
+.cart-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 3px solid var(--text-color);
+  background: #0e0e0e;
+}
+
+.cart-row + .cart-row {
+  margin-top: 1rem;
+}
+
+/* light picture box, same as the home tiles */
+.cart-picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border: 3px solid var(--text-color);
+  background: #f9f9f9;
+  color: #333;
+}
+
+.cart-picture svg {
+  width: 75%;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linejoin: round;
+}
+
+.cart-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.cart-info h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.6rem;
+}
+
+.cart-page p {
+  margin: 0.2rem 0;
+  font-size: 1rem;
+}
+
+/* - 1 + */
+.cart-quantity {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cart-quantity span {
+  min-width: 2ch;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.cart-quantity button {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 3px solid var(--text-color);
+  background: #252525;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.cart-quantity button:hover {
+  background: #ffdd00;
+  color: #0e0e0e;
+}
+
+.cart-page .cart-row-total {
+  min-width: 6rem;
+  font-size: 1.3rem;
+  text-align: right;
+}
+
+/* red buttons, same as add to cart */
+.cart-remove {
+  padding: 0.6rem 1rem;
+  border: 3px solid var(--text-color);
+  background: #d32f2f;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.cart-remove:hover {
+  background: #a31f1f;
+}
+
+.cart-remove:active, .cart-quantity button:active {
+  transform: scale(0.95);
+}
+
+.cart-page .cart-subtotal p {
+  font-size: 1.5rem;
+  text-align: right;
+}
+
+/* empty cart */
+.cart-empty {
+  text-align: center;
+}
+
+.cart-page .cart-empty p {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+/* navbar "a" styles in index.css hit this link too, so reset them here */
+.cart-page .cart-shop-link {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1.5rem;
+  border: 3px solid var(--text-color);
+  background: #d32f2f;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.cart-page .cart-shop-link:hover {
+  background: #a31f1f;
+}
+
+/* phones - picture and info on top, buttons underneath */
+@media (max-width: 560px) {
+  .cart-page h1 {
+    font-size: 1.6rem;
+  }
+  .cart-row {
+    flex-wrap: wrap;
+  }
+  .cart-picture {
+    width: 70px;
+    height: 70px;
+  }
+  .cart-info h2 {
+    font-size: 1.2rem;
+  }
+  .cart-page .cart-row-total {
+    flex: 1;
+  }
+  .cart-page .cart-subtotal p {
+    font-size: 1.2rem;
+  }
+}
