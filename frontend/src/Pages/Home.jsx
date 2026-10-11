@@ -2,7 +2,13 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
-const items = [1, 2, 3, 4];
+// each tile on the home page - name shows on the tile, link is the page it opens
+const items = [
+  { name: 'Sword', link: '/sword' },
+  { name: 'Chainmail', link: '/chainmail' },
+  { name: 'Plate Armor', link: '/platearmor' },
+  { name: 'Cooking Pot', link: '/cookingpot' },
+];
 
 function Home() {
   const [supportOpen, setSupportOpen] = useState(false);
@@ -13,14 +19,14 @@ function Home() {
         <h1 id="inventory-heading">Check out our inventory:</h1>
         <div className="home-inventory-grid">
           {items.map((item) => (
-            <Link className="home-item-card" to="/sword" key={item}>
+            <Link className="home-item-card" to={item.link} key={item.name}>
               <span className="home-item-preview" aria-hidden="true">
                 <svg viewBox="0 0 100 80" fill="none">
                   <path d="M15 24h70v12L66 49H43L28 36H15V24Z" />
                   <path d="M46 49v12H35v8h39v-8H62V49M68 24V14H42v10" />
                 </svg>
               </span>
-              <span className="home-item-name">Item {item}</span>
+              <span className="home-item-name">{item.name}</span>
               <span className="home-item-detail">View Item</span>
             </Link>
           ))}

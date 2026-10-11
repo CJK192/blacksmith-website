@@ -8,6 +8,9 @@ import ItemPage from './Pages/ItemPage'
 
 import { Routes, Route } from 'react-router-dom'
 import SwordPage from './Pages/SwordPage'
+import ChainmailPage from './Pages/ChainmailPage'
+import PlateArmorPage from './Pages/PlateArmorPage'
+import CookingPotPage from './Pages/CookingPotPage'
 
 function App()
 {
@@ -22,6 +25,9 @@ function App()
     <Route path = '/cart' element={<Cart />}/>
     <Route path = '/item' element={<ItemPage />}/>
     <Route path = '/sword' element={<SwordPage />}/> 
+    <Route path = '/chainmail' element={<ChainmailPage />}/>
+    <Route path = '/platearmor' element={<PlateArmorPage />}/>
+    <Route path = '/cookingpot' element={<CookingPotPage />}/>
   </Routes>
 
   </div>
