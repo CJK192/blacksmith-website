@@ -2,6 +2,59 @@ import { Link } from 'react-router-dom'
 import { useCart } from '../CartContext'
 import AnvilIcon from '../components/AnvilIcon'
 import './Cart.css'
+import SwordPage from './SwordPage'
+
+function getId()
+{
+    let id = localStorage.getItem("ID")
+    if(!id)
+    {
+        id = crypto.randomUUID();
+        localStorage.setItem("ID", id);
+    }
+
+    return id;
+}
+
+async function writeCart(user_cart, user_id)
+{
+    const put = "http://localhost:5000/api/add"
+    
+    const entry = {
+
+        items: user_cart,
+        id: user_id,
+        status: "pending"
+    };
+
+    try{
+        const response = await fetch(put, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ entry: entry })
+      });
+       if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status}`);
+      }
+
+      const result = await response.json();
+
+      console.log("Updated queue:", result.queue);
+      console.log(typeof(user_cart));
+      localStorage.removeItem('gunters-cart');
+      location.reload();
+      
+      
+    }
+    catch(error)
+    {
+        console.error("error adding item to the queue!");
+    }
+
+    
+}
 
 function Cart()
 {
@@ -55,6 +108,9 @@ function Cart()
         <section className="cart-panel cart-subtotal">
             <p>Subtotal ({itemCount} {itemCount === 1 ? 'item' : 'items'}): <strong>${subtotal.toFixed(2)}</strong></p>
         </section>
+
+        <center><button className='cart-remove' onClick={() => writeCart(cart, getId())}> Check Out!</button></center>
+
     </main>
 }
 

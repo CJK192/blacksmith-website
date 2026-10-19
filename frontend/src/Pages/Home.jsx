@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 import AnvilIcon from '../components/AnvilIcon';
+import ToDoList from '../components/ToDoList';
 
 // each tile on the home page - name shows on the tile, link is the page it opens
 const items = [
@@ -33,6 +34,9 @@ function Home() {
 
       <aside className="home-todos" aria-labelledby="todo-heading">
         <h2 id="todo-heading">Gunter’s To-Do List</h2>
+        <div>
+          <ToDoList></ToDoList>
+        </div>
       </aside>
 
       <div className="home-support">
