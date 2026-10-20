@@ -9,16 +9,16 @@ function getId()
     let id = localStorage.getItem("ID")
     if(!id)
     {
-        id = crypto.randomUUID();
-        localStorage.setItem("ID", id);
+       // id = crypto.randomUUID();
+       // localStorage.setItem("ID", id);
     }
 
     return id;
 }
 
-async function writeCart(user_cart, user_id)
+async function writeCart(user_cart, user_id, klear_kart)
 {
-    const put = "http://localhost:5000/api/add"
+    const put = "http://192.168.86.209:5000/api/add"
     
     const entry = {
 
@@ -41,10 +41,17 @@ async function writeCart(user_cart, user_id)
 
       const result = await response.json();
 
+      
       console.log("Updated queue:", result.queue);
       console.log(typeof(user_cart));
-      localStorage.removeItem('gunters-cart');
-      location.reload();
+      localStorage.setItem('gunters-cart', [])
+      console.log("set-item")
+      klear_kart()
+      console.log("cleared cart@!")
+
+      //THIS vvvvv IS NOT HOW I WANT TO DO THIS BUT CANT FIGURE OUT ANOTHER WAY JOSH HOW DOES THIS CART WORK GENUINLEY EXPLAIN
+     // location.reload();
+
       
       
     }
@@ -58,7 +65,7 @@ async function writeCart(user_cart, user_id)
 
 function Cart()
 {
-    const { cart, changeQuantity, removeFromCart } = useCart();
+    const { cart, changeQuantity, removeFromCart, clearCart } = useCart();
     const itemCount = cart.reduce((total, item) => total + item.quantity, 0); {/*adds up all the quantities*/}
     const subtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0); {/*adds up price x quantity*/}
 
@@ -109,7 +116,7 @@ function Cart()
             <p>Subtotal ({itemCount} {itemCount === 1 ? 'item' : 'items'}): <strong>${subtotal.toFixed(2)}</strong></p>
         </section>
 
-        <center><button className='cart-remove' onClick={() => writeCart(cart, getId())}> Check Out!</button></center>
+        <center><button className='cart-remove' onClick={() => writeCart(cart, getId(), clearCart)}> Check Out!</button></center>
 
     </main>
 }

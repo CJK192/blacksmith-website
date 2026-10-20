@@ -4,27 +4,42 @@ function ToDoList()
 {
 
 const [queue, SetQueue] = useState([]);
+//const [id_queue, setIds] = useState([]);
 //http://ckpi4.local:5000/api/queue
 
 useEffect(
-    () => {fetch("http://localhost:5000/api/queue")
-    .then((res) => res.json())
-    .then((data) => SetQueue(data.queue)) }, []
-    );
+    () => {
+        async function refreshQueue() {
+            
+            try{
+             const response = await  fetch("http://192.168.86.209:5000/api/queue");
+           
 
-async function onSubmit(event)
-{
-    event.preventDefault()
-    const response = await fetch("http://localhost:5000/api/add", 
-        {method: "POST",
-        headers: { "Content-Type" : "application/json" },
-        body: JSON.stringify({ entry: entry})});
+            if (!response.ok)
+            {
+                throw new Error('Failed to fetch queue');
+            }
 
-    const data = await response.json();
-    SetQueue(data.queue);
-  
+            const data = await response.json();
+            SetQueue(data.queue)
+            
+        } catch(error)
+        {
+            console.error('Error fetching queue:', error);
+        }
+    }
+
+    refreshQueue();
+
+    const interval = setInterval(refreshQueue, 2000);
+
+    return () => clearInterval(interval)
+
+    }, []);
+
     
-}
+
+
 
 return <div>
     <ul>

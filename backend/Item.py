@@ -21,6 +21,9 @@ class Item:
     def get_quantity(self):
         return self.quantity
 
+    def set_duration(self, amount):
+        self.duration = amount
+
     def get_color(self):
         return self.color
 

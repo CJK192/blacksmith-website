@@ -33,6 +33,13 @@ export function CartProvider({ children }) {
 
   //AI use ends here
 
+  //josh i will never forgive you for writing this code
+
+  function clearCart()
+  {
+    setCart([]);
+  }
+
   // adds an item - if the same item in the same color is already in, just add 1 to its quantity
   function addToCart(name, price, color) {
     const alreadyIn = cart.find((item) => item.name === name && item.color === color);
@@ -62,7 +69,7 @@ export function CartProvider({ children }) {
   }
 
   return (
-    <CartContext.Provider value={{ cart, setCart, addToCart, changeQuantity, removeFromCart, removeFromCart }}>
+    <CartContext.Provider value={{ cart, setCart, addToCart, changeQuantity, clearCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
   );
