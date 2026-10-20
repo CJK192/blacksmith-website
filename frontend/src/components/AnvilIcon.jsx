@@ -1,4 +1,4 @@
-// anvil drawing used on the home page tiles and the cart until we have real item pictures
+// anvil drawing - backup picture in the cart if an item has no picture in itemImages.js
 function AnvilIcon()
 {
     return <svg viewBox="0 0 100 80" fill="none">

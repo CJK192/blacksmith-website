@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
-import AnvilIcon from '../components/AnvilIcon';
 import ToDoList from '../components/ToDoList';
+import { itemImages } from '../itemImages';
 
 // each tile on the home page - name shows on the tile, link is the page it opens
 const items = [
@@ -23,7 +23,7 @@ function Home() {
           {items.map((item) => (
             <Link className="home-item-card" to={item.link} key={item.name}>
               <span className="home-item-preview" aria-hidden="true">
-                <AnvilIcon />
+                <img src={itemImages[item.name].Black} alt="" />
               </span>
               <span className="home-item-name">{item.name}</span>
               <span className="home-item-detail">View Item</span>

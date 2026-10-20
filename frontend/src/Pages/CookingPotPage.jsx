@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useCart } from '../CartContext';
+import { itemImages } from '../itemImages';
 
 function CookingPotPage() {
   const { addToCart } = useCart(); {/*opens the shared cart*/}
@@ -8,13 +9,7 @@ function CookingPotPage() {
 
   const colors = ['Black', 'Red', 'Blue', 'Silver', 'Gold']; {/*available colors*/}
 
-  const colorImages = {
-    Black: 'https://via.placeholder.com/500x500?text=Black',
-    Red: 'https://via.placeholder.com/500x500?text=Red',
-    Blue: 'https://via.placeholder.com/500x500?text=Blue',
-    Silver: 'https://via.placeholder.com/500x500?text=Silver',
-    Gold: 'https://via.placeholder.com/500x500?text=Gold'
-  };
+  const colorImages = itemImages['Cooking Pot']; {/*pictures for each color, in itemImages.js*/}
 
   const imageUrl = colorImages[selectedColor];
 
@@ -29,10 +24,10 @@ function CookingPotPage() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#f9f9f9'
+        backgroundColor: 'white'
       }}> {/*calm lil if else statement incase the url is empty*/}
         {imageUrl ? (
-          <img src={imageUrl} alt="Item" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
+          <img src={imageUrl} alt={selectedColor + ' Cooking Pot'} style={{ width: '75%', height: '75%', objectFit: 'contain' }} />
         ) : (
           <span style={{ color: '#aaa' }}>Image Placeholder</span>
         )}

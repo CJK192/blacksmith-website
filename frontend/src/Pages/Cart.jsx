@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCart } from '../CartContext'
 import AnvilIcon from '../components/AnvilIcon'
+import { itemImages } from '../itemImages'
 import './Cart.css'
 import SwordPage from './SwordPage'
 
@@ -65,9 +67,29 @@ async function writeCart(user_cart, user_id, klear_kart)
 
 function Cart()
 {
-    const { cart, changeQuantity, removeFromCart, clearCart } = useCart();
+    const { cart, setCart, changeQuantity, removeFromCart, clearCart } = useCart();
+    const [orderPlaced, setOrderPlaced] = useState(false); {/*true after checkout is pressed*/}
     const itemCount = cart.reduce((total, item) => total + item.quantity, 0); {/*adds up all the quantities*/}
     const subtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0); {/*adds up price x quantity*/}
+
+    {/*no payment yet - checkout just places the order and empties the cart*/}
+    function checkout()
+    {
+        setOrderPlaced(true);
+        setCart([]);
+    }
+
+    {/*thank you screen after checkout*/}
+    if (orderPlaced)
+    {
+        return <main className="cart-page">
+            <h1>Order Placed!</h1>
+            <section className="cart-panel cart-empty">
+                <p>Thanks for shopping with Gunter's Blacksmithing.</p>
+                <Link to="/" className="cart-shop-link">Back to shop</Link>
+            </section>
+        </main>
+    }
 
     {/*nothing added yet*/}
     if (cart.length === 0)
@@ -89,7 +111,8 @@ function Cart()
             {cart.map((item) => (
                 <div className="cart-row" key={item.name + item.color}>
                     <div className="cart-picture" aria-hidden="true">
-                        <AnvilIcon />
+                        {/*picture for this item + color, anvil if we don't have one*/}
+                        {itemImages[item.name]?.[item.color] ? <img src={itemImages[item.name][item.color]} alt="" /> : <AnvilIcon />}
                     </div>
 
                     <div className="cart-info">
@@ -114,6 +137,7 @@ function Cart()
         {/*total at the bottom*/}
         <section className="cart-panel cart-subtotal">
             <p>Subtotal ({itemCount} {itemCount === 1 ? 'item' : 'items'}): <strong>${subtotal.toFixed(2)}</strong></p>
+            <button className="cart-checkout" onClick={checkout}>Checkout</button>
         </section>
 
         <center><button className='cart-remove' onClick={() => writeCart(cart, getId(), clearCart)}> Check Out!</button></center>

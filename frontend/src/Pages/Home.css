@@ -53,23 +53,20 @@
   transition: transform 0.1s;
 }
 
-/* light image box, same as the sword page */
+/* white picture box, same as the item pages */
 .home-item-preview {
   display: flex;
   align-items: center;
   justify-content: center;
   aspect-ratio: 1.8;
   border-bottom: 0.4vw solid var(--text-color);
-  background: #f9f9f9;
-  color: #333;
+  background: white;
 }
 
-.home-item-preview svg {
-  width: 60%;
-  max-width: 140px;
-  stroke: currentColor;
-  stroke-width: 3;
-  stroke-linejoin: round;
+.home-item-preview img {
+  width: 75%;
+  height: 75%;
+  object-fit: contain;
 }
 
 .home-item-name {
