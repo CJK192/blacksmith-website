@@ -8,10 +8,10 @@ import './About.css'
 
 function About() {
   return (
-    <div style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
+    <div className="about-page" style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
       {/*top*/}
       <section style={{ marginBottom: '4rem', textAlign: 'center' }}>
-        <h1 style={{ fontSize: '4rem', marginBottom: '1rem', color: 'white' }}>About Gunter's Blacksmithing</h1>
+        <h1 className="about-title" style={{ fontSize: '4rem', marginBottom: '1rem', color: 'white' }}>About Gunter's Blacksmithing</h1>
         <p style={{ fontSize: '1.2rem', color: 'white', margin: '0 auto' }}>
           Crafting quality products with passion and precision since day one.
         </p>
@@ -71,7 +71,7 @@ function About() {
           </div>
 
           {/* Crafters - Second Row */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', backgroundColor: '#fff' }}>
+          <div className="about-team-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', backgroundColor: '#fff' }}>
             {[
               {
                 name: 'Cole Keller',
@@ -100,6 +100,7 @@ function About() {
             ].map((member, idx) => (
               <div
                 key={idx}
+                className="about-member"
                 style={{
                   padding: '1.5rem',
                   textAlign: 'center',

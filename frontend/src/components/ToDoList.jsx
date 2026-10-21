@@ -12,7 +12,7 @@ useEffect(
         async function refreshQueue() {
             
             try{
-             const response = await  fetch("http://10.108.51.169:5000/api/queue");
+             const response = await  fetch("http://172.20.10.5:5000/api/queue");
            
 
             if (!response.ok)

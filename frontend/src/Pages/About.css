@@ -17,17 +17,53 @@
   margin-bottom: 0.75rem;
 }
 
-/* pixelated keeps the pixel art photos sharp, top keeps the face in view */
+/* pixelated keeps the pixel art photos sharp, top keeps the face in view. names use the site's pixel font */
 .about-profile .profile-card__photo {
   object-fit: cover;
   object-position: top;
   image-rendering: pixelated;
 }
 
-/* card names use the site's pixel font instead of the card's default font */
 .about-profile .profile-card__name,
 .about-profile .profile-card__title {
   font-family: var(--font);
   color: white;
 }
 
+/* phones: the page uses inline styles, so !important is needed to beat them.
+   smaller title so it fits, readable headings, and the team goes 2 per row instead of 4 squished in one row */
+@media (max-width: 560px) {
+  .about-page {
+    padding: 1rem !important;
+  }
+  .about-page section {
+    margin-bottom: 2.5rem !important;
+  }
+  .about-title {
+    font-size: 2.2rem !important;
+    line-height: 1.15;
+    overflow-wrap: break-word;
+  }
+  .about-page h2 {
+    font-size: 1.5rem !important;
+  }
+  .about-page section[style*="padding"],
+  .about-team-grid ~ div,
+  .about-page section > div > div[style*="padding"] {
+    padding: 1.25rem !important;
+  }
+  .about-team-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .about-member {
+    padding: 1rem 0.75rem !important;
+    border-right: none !important;
+    border-bottom: dotted 2px #ddd;
+  }
+  .about-profile .profile-card__name {
+    font-size: 1rem;
+  }
+  .about-profile .profile-card__title {
+    font-size: 0.75rem;
+  }
+}
