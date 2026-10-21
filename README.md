@@ -1,3 +1,5 @@
+PROJECT MEANT TO MAKE USE OF A SPECIFIC RASPBERRY PI
+
 Hello! This project is the result of hours and hours of work, learning, failing, and bug fixing. Through this project, me and my groupmates learned:
 -The React framework
 -How to manage a project with multiple coding languages
