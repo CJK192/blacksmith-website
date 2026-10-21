@@ -19,7 +19,7 @@ function getId()
 
 async function writeCart(user_cart, user_id, klear_kart)
 {
-    const put = "http://192.168.1.52:5000/api/add"
+    const put = "http://10.108.51.169:5000/api/add"
     
     const entry = {
 
