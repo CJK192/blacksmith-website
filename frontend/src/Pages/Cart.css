@@ -135,27 +135,6 @@
   text-align: right;
 }
 
-/* big red checkout button, same style as add to cart */
-.cart-checkout {
-  display: block;
-  width: 100%;
-  margin-top: 1rem;
-  padding: 1.25rem;
-  border: 0.4vw solid var(--text-color);
-  background: #d32f2f;
-  font-size: 2rem;
-  cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
-}
-
-.cart-checkout:hover {
-  background: #a31f1f;
-}
-
-.cart-checkout:active {
-  transform: scale(0.98);
-}
-
 /* empty cart */
 .cart-empty {
   text-align: center;
