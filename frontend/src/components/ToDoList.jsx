@@ -12,7 +12,7 @@ useEffect(
         async function refreshQueue() {
             
             try{
-             const response = await  fetch("http://192.168.86.209:5000/api/queue");
+             const response = await  fetch("http://ckpi4.local:5000/api/queue");
            
 
             if (!response.ok)

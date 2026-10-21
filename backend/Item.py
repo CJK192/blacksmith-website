@@ -1,4 +1,5 @@
-import json
+
+#This is mostly just a data-container class to keep track of info about each object within the to-do list
 
 class Item:
     def __init__(self, name, duration, cost, color, quantity, ID):
@@ -42,6 +43,8 @@ class Item:
 
     def __str__(self):
         return f"<ITEM\nNAME: {self.name}\nCOST: {self.cost}\nDURATION: {self.duration}\nCOLOR: {self.color}>"
+
+#This is a remnant of an abandoned feature in which items would be packaged into orders with unique IDs, however I ran out of time to implement it.
 
 class Order:
     def __init__(self, items = [], ID = None):
