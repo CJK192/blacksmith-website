@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import './Home.css';
 import ToDoList from '../components/ToDoList';
 import { itemImages } from '../itemImages';
+// AI chat- AI used
+import SupportChat from '../components/SupportChat';
+// AI stopped
 // react bits- AI used
 import PixelSnow from '../components/reactbits/PixelSnow';
 import TiltedCard from '../components/reactbits/TiltedCard';
@@ -69,8 +72,9 @@ function Home() {
         {supportOpen && (
           <section className="home-support-panel" id="home-support-panel" aria-labelledby="support-heading">
             <h2 id="support-heading">AI Support Helper</h2>
-            <p>Need a hand around the shop?</p>
-            <p>AI chat isn’t connected yet. You can browse the inventory or visit our support page for help.</p>
+            {/*AI chat- AI used*/}
+            <SupportChat />
+            {/*AI stopped*/}
             <Link to="/support" className="home-support-link">Go to support →</Link>
           </section>
         )}
