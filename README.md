@@ -36,6 +36,13 @@ We wanted to build a real website that actually talks to a server, not just a pa
 - **React Bits** - premade animated components so the site looks cool without us having to code every animation from scratch.
 - **localStorage** - saves your cart in your browser so it doesn't disappear when you refresh.
 
+## Languages
+- **JavaScript (JSX)** - the whole website. JSX is JavaScript that lets you write HTML-looking code inside React.
+- **CSS** - how everything looks: colors, layout, the navbar, the phone version.
+- **HTML** - the base page the React site loads into (`index.html`).
+- **Python** - the backend server (Flask) and the to-do list queue.
+- **JSON** - how the website and the backend send the cart and the to-do list back and forth.
+
 ## How it works
 1. The **frontend** (`frontend/`) is the React site. Your cart lives in `CartContext.jsx` so every page can use it.
 2. When you hit **Check Out!**, the cart gets sent to the backend at `/api/add`.
