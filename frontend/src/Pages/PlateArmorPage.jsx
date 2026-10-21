@@ -1,22 +1,19 @@
 import { useState } from 'react';
+import { useCart } from '../CartContext';
+import { itemImages } from '../itemImages';
 // react bits- AI used
 import GlareHover from '../components/reactbits/GlareHover';
 import ShinyText from '../components/reactbits/ShinyText';
 // AI stopped
 
 function PlateArmorPage() {
+  const { addToCart } = useCart(); {/*opens the shared cart*/}
   const price = "210.00"; // add price here
   const [selectedColor, setSelectedColor] = useState('Black'); {/*sets default color*/}
 
   const colors = ['Black', 'Red', 'Blue', 'Silver', 'Gold']; {/*available colors*/}
 
-  const colorImages = {
-    Black: 'https://via.placeholder.com/500x500?text=Black',
-    Red: 'https://via.placeholder.com/500x500?text=Red',
-    Blue: 'https://via.placeholder.com/500x500?text=Blue',
-    Silver: 'https://via.placeholder.com/500x500?text=Silver',
-    Gold: 'https://via.placeholder.com/500x500?text=Gold'
-  };
+  const colorImages = itemImages['Plate Armor']; {/*pictures for each color*/}
 
   const imageUrl = colorImages[selectedColor];
 
@@ -33,10 +30,10 @@ function PlateArmorPage() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#f9f9f9'
+        backgroundColor: 'white'
       }}> {/*calm lil if else statement incase the url is empty*/}
         {imageUrl ? (
-          <img src={imageUrl} alt="Item" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
+          <img src={imageUrl} alt={selectedColor + ' Plate Armor'} style={{ width: '75%', height: '75%', objectFit: 'contain' }} />
         ) : (
           <span style={{ color: '#aaa' }}>Image Placeholder</span>
         )}
@@ -86,6 +83,7 @@ function PlateArmorPage() {
 
       <p>Item details will go here</p>
       <button className="cart-button"
+      onClick={() => addToCart('Plate Armor', price, selectedColor)}
       style={{width: '100%', padding: '2.5rem 3.5rem', borderRadius: '0px', cursor: 'pointer' , fontSize: '3rem', borderWidth:"0.5rem", color:'white'}}
       >Add to Cart</button>
       </div>
