@@ -8,7 +8,7 @@
 ## What is this?
 Gunter's Blacksmithing is a pretend online shop for a blacksmith named Gunter. You can look at what he makes, pick a color, add stuff to your cart, and check out. When you check out, your order goes onto **Gunter's To-Do List**, which is basically his work queue, and the backend "makes" each item one at a time.
 
-We also added a little hammer game where you can win a coupon, because why not.
+We also added a little hammer game where you can win a coupon, for the KU Design Competition special feature.
 
 ## The idea
 We wanted to build a real website that actually talks to a server, not just a page that looks nice. The idea was Gunter works out of his barn, people order things online, and the orders show up on a list so he knows what to make next. The backend runs on a Raspberry Pi so the whole thing is our own setup from start to finish.
