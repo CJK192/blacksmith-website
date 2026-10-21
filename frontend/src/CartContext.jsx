@@ -3,31 +3,30 @@ import { createContext, useContext, useEffect, useState } from 'react';
 // the shared box
 const CartContext = createContext();
 
-// name the cart is saved under in the browser
 const SAVE_NAME = 'gunters-cart';
 
-// LOAD - get the saved cart when the site opens (empty list if there isn't one)
+// loads saved cart when site opens
 function loadCart() {
   try {
     const saved = localStorage.getItem(SAVE_NAME);
     return saved ? JSON.parse(saved) : [];
   } catch {
-    return []; // saved cart is broken or the browser blocks storage - just start empty
+    return [];
   }
 }
 
 // every page has access to cart now, because the box is wrapped around the whole app in main.jsx
 export function CartProvider({ children }) {
-  const [cart, setCart] = useState(loadCart); // starts with the saved cart
+  const [cart, setCart] = useState(loadCart);
   
   // AI use starts here
 
-  // SAVE - every time the cart changes, write it to the browser
+  // saves cart every time it changes
   useEffect(() => {
     try {
       localStorage.setItem(SAVE_NAME, JSON.stringify(cart));
     } catch {
-      // browser blocks storage (like some private windows) - cart still works, it just won't be saved
+      return;
     }
   }, [cart]);
 
@@ -40,7 +39,7 @@ export function CartProvider({ children }) {
     setCart([]);
   }
 
-  // adds an item - if the same item in the same color is already in, just add 1 to its quantity
+  // adds item, or +1 if its already in cart
   function addToCart(name, price, color) {
     const alreadyIn = cart.find((item) => item.name === name && item.color === color);
 
@@ -63,7 +62,6 @@ export function CartProvider({ children }) {
     );
   }
 
-  // remove button on the cart page
   function removeFromCart(name, color) {
     setCart(cart.filter((item) => !(item.name === name && item.color === color)));
   }
@@ -75,7 +73,6 @@ export function CartProvider({ children }) {
   );
 }
 
-// any page calls useCart() to open the box
 export function useCart() {
   return useContext(CartContext);
 }

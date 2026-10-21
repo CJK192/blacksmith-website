@@ -1,6 +1,10 @@
 import { useState } from 'react';
+// react bits- AI used
+import GlareHover from '../components/reactbits/GlareHover';
+import ShinyText from '../components/reactbits/ShinyText';
 import { useCart } from '../CartContext';
 import { itemImages } from '../itemImages';
+// AI stopped
 
 function CookingPotPage() {
   const { addToCart } = useCart(); {/*opens the shared cart*/}
@@ -9,7 +13,7 @@ function CookingPotPage() {
 
   const colors = ['Black', 'Red', 'Blue', 'Silver', 'Gold']; {/*available colors*/}
 
-  const colorImages = itemImages['Cooking Pot']; {/*pictures for each color, in itemImages.js*/}
+  const colorImages = itemImages['Cooking Pot']; {/*pictures for each color*/}
 
   const imageUrl = colorImages[selectedColor];
 
@@ -17,6 +21,8 @@ function CookingPotPage() {
     <div style={{ display: 'flex', gap: '2rem' }}> {/*display flex, gap 2rem splits page in half*/}
 
       <div style={{ flex: 1 }}> {/*take up half of the page*/}
+      {/*shine on picture- AI used*/}
+      <GlareHover width="100%" height="auto" background="white" borderRadius="8px" glareColor="#ffb300" glareOpacity={0.5} blendMode="multiply">
       <div style={{
         width: '100%',
         aspectRatio: '1',
@@ -32,12 +38,16 @@ function CookingPotPage() {
           <span style={{ color: '#aaa' }}>Image Placeholder</span>
         )}
       </div>
+      </GlareHover>
+      {/*AI stopped*/}
     </div>
 
     {/*text*/}
     <div style={{ flex: 1 }}>
       <h1>Cooking Pot</h1> {/*item name*/}
-      <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#d32f2f', marginBottom: '2rem' }}>${price}</p>
+      {/*shiny price- AI used*/}
+      <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#d32f2f', marginBottom: '2rem' }}><ShinyText text={'$' + price} color='#d32f2f' shineColor='#ffdd00' speed={3} /></p>
+      {/*AI stopped*/}
 
 {/*Color Options- AI used*/}
       <div style={{ marginBottom: '2rem' }}>

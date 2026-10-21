@@ -11,6 +11,9 @@ import SwordPage from './Pages/SwordPage'
 import ChainmailPage from './Pages/ChainmailPage'
 import PlateArmorPage from './Pages/PlateArmorPage'
 import CookingPotPage from './Pages/CookingPotPage'
+// game page- AI used
+import GamePage from './Pages/GamePage'
+// AI stopped
 
 function App()
 {
@@ -28,6 +31,9 @@ function App()
     <Route path = '/chainmail' element={<ChainmailPage />}/>
     <Route path = '/platearmor' element={<PlateArmorPage />}/>
     <Route path = '/cookingpot' element={<CookingPotPage />}/>
+    {/*game page- AI used*/}
+    <Route path = '/game' element={<GamePage />}/>
+    {/*AI stopped*/}
   </Routes>
 
   </div>

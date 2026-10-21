@@ -1,8 +1,13 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCart } from '../CartContext'
 import AnvilIcon from '../components/AnvilIcon'
 import { itemImages } from '../itemImages'
 import './Cart.css'
+// react bits- AI used
+import AnimatedList from '../components/reactbits/AnimatedList'
+import CountUp from '../components/reactbits/CountUp'
+// AI stopped
 import SwordPage from './SwordPage'
 
 function getId()
@@ -50,7 +55,7 @@ async function writeCart(user_cart, user_id, klear_kart)
       klear_kart()
       console.log("cleared cart@!")
 
-      //THIS vvvvv IS NOT HOW I WANT TO DO THIS BUT CANT FIGURE OUT ANOTHER WAY JOSH HOW DOES THIS CART WORK GENUINLEY EXPLAIN
+     
      // location.reload();
 
       
@@ -64,11 +69,44 @@ async function writeCart(user_cart, user_id, klear_kart)
     
 }
 
+/*Cart page here- AI use begins*/
+
 function Cart()
 {
     const { cart, changeQuantity, removeFromCart, clearCart } = useCart();
     const itemCount = cart.reduce((total, item) => total + item.quantity, 0); {/*adds up all the quantities*/}
     const subtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0); {/*adds up price x quantity*/}
+
+    {/*coupon code- AI used*/}
+    const COUPON_CODE = 'GUNTERSPRIZE';
+    const [couponInput, setCouponInput] = useState('');
+    const [couponApplied, setCouponApplied] = useState(false);
+    const [couponMessage, setCouponMessage] = useState('');
+    const discount = couponApplied ? Math.min(5, subtotal) : 0;
+    const total = subtotal - discount;
+
+    function applyCoupon(event)
+    {
+        event.preventDefault();
+        if (couponInput.trim().toUpperCase() === COUPON_CODE)
+        {
+            setCouponApplied(true);
+            setCouponMessage('Coupon applied! $5 off');
+        }
+        else
+        {
+            setCouponApplied(false);
+            setCouponMessage("That code doesn't work");
+        }
+    }
+
+    function removeCoupon()
+    {
+        setCouponApplied(false);
+        setCouponInput('');
+        setCouponMessage('');
+    }
+    {/*AI stopped*/}
 
     {/*nothing added yet*/}
     if (cart.length === 0)
@@ -85,12 +123,14 @@ function Cart()
     return <main className="cart-page">
         <h1>Your Cart</h1>
 
-        {/*one row per item + color*/}
         <section className="cart-panel">
-            {cart.map((item) => (
-                <div className="cart-row" key={item.name + item.color}>
+            {/*animated rows- AI used*/}
+            <AnimatedList
+                items={cart.map((item) => ({ ...item, id: item.name + item.color }))}
+                renderItem={(item) => (
+                <div className="cart-row">
                     <div className="cart-picture" aria-hidden="true">
-                        {/*picture for this item + color, anvil if we don't have one*/}
+                        {/*picture, anvil if no picture*/}
                         {itemImages[item.name]?.[item.color] ? <img src={itemImages[item.name][item.color]} alt="" /> : <AnvilIcon />}
                     </div>
 
@@ -110,17 +150,45 @@ function Cart()
 
                     <button className="cart-remove" onClick={() => removeFromCart(item.name, item.color)}>Remove</button>
                 </div>
-            ))}
+                )}
+                width="100%" maxHeight="none" gap={16} radius={0} frame={false} showGradients={false} displayScrollbar={false}
+                selectOnHover={false} enableArrowNavigation={false} animateOnce
+                className="cart-animated-list" itemClassName="cart-list-item"
+            />
+            {/*AI stopped*/}
         </section>
 
-        {/*total at the bottom*/}
         <section className="cart-panel cart-subtotal">
-            <p>Subtotal ({itemCount} {itemCount === 1 ? 'item' : 'items'}): <strong>${subtotal.toFixed(2)}</strong></p>
+            <p>Subtotal ({itemCount} {itemCount === 1 ? 'item' : 'items'}): <strong>{/*count up total- AI used*/}$<CountUp to={subtotal} decimals={2} duration={0.8} />{/*AI stopped*/}</strong></p>
+
+            {/*coupon box- AI used*/}
+            <form className="cart-coupon" onSubmit={applyCoupon}>
+                <input
+                    type="text"
+                    value={couponInput}
+                    onChange={(event) => setCouponInput(event.target.value)}
+                    placeholder="Coupon code"
+                    aria-label="Coupon code"
+                    disabled={couponApplied}
+                />
+                {couponApplied
+                    ? <button type="button" className="cart-remove" onClick={removeCoupon}>Remove</button>
+                    : <button type="submit" className="cart-remove">Apply</button>}
+            </form>
+            {couponMessage && <p className={couponApplied ? 'cart-coupon-message' : 'cart-coupon-message cart-coupon-message--bad'}>{couponMessage}</p>}
+
+            {couponApplied && <>
+                <p className="cart-discount">Coupon ({COUPON_CODE}): -${discount.toFixed(2)}</p>
+                <p className="cart-total">Total: <strong>$<CountUp to={total} decimals={2} duration={0.8} /></strong></p>
+            </>}
+            {/*AI stopped*/}
         </section>
 
         <center><button className='cart-remove' onClick={() => writeCart(cart, getId(), clearCart)}> Check Out!</button></center>
 
     </main>
 }
+
+/*AI use ends here*/
 
 export default Cart;

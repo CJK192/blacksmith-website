@@ -1,4 +1,3 @@
-/* cart page - same grey panels + white borders as the home page */
 .cart-page {
   max-width: 1000px;
   margin: 0 auto;
@@ -39,7 +38,6 @@
   margin-top: 1rem;
 }
 
-/* white picture box, same as the home tiles */
 .cart-picture {
   display: flex;
   align-items: center;
@@ -80,7 +78,7 @@
   font-size: 1rem;
 }
 
-/* - 1 + */
+/* - and + buttons */
 .cart-quantity {
   display: flex;
   align-items: center;
@@ -113,7 +111,6 @@
   text-align: right;
 }
 
-/* red buttons, same as add to cart */
 .cart-remove {
   padding: 0.6rem 1rem;
   border: 3px solid var(--text-color);
@@ -135,6 +132,56 @@
   text-align: right;
 }
 
+/*coupon box- AI used*/
+.cart-coupon {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.cart-coupon input {
+  width: 14rem;
+  max-width: 100%;
+  padding: 0.6rem;
+  border: 3px solid var(--text-color);
+  background: #0e0e0e;
+  color: var(--text-color);
+  font-family: var(--font);
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.cart-coupon input:disabled {
+  opacity: 0.7;
+}
+
+.cart-page .cart-subtotal .cart-coupon-message {
+  font-size: 1rem;
+  color: #7CFC00;
+}
+
+.cart-page .cart-subtotal .cart-coupon-message--bad {
+  color: #ffdd00;
+}
+
+.cart-page .cart-subtotal .cart-discount {
+  font-size: 1.2rem;
+  color: #7CFC00;
+}
+
+.cart-page .cart-subtotal .cart-total {
+  font-size: 1.8rem;
+}
+
+@media (max-width: 560px) {
+  .cart-coupon input {
+    flex: 1;
+    width: auto;
+  }
+}
+/*AI stopped*/
+
 /* empty cart */
 .cart-empty {
   text-align: center;
@@ -145,7 +192,6 @@
   font-size: 1.5rem;
 }
 
-/* navbar "a" styles in index.css hit this link too, so reset them here */
 .cart-page .cart-shop-link {
   display: inline-block;
   width: auto;
@@ -161,7 +207,7 @@
   background: #a31f1f;
 }
 
-/* phones - picture and info on top, buttons underneath */
+/* phones */
 @media (max-width: 560px) {
   .cart-page h1 {
     font-size: 1.6rem;
@@ -183,3 +229,24 @@
     font-size: 1.2rem;
   }
 }
+
+/*animated list fixes- AI used*/
+.cart-animated-list .cart-list-item {
+  display: block;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  cursor: default;
+  user-select: auto;
+  -webkit-user-select: auto;
+}
+
+.cart-animated-list .animated-list__indicator,
+.cart-animated-list .animated-list__rim {
+  display: none;
+}
+
+.cart-animated-list .cart-row + .cart-row {
+  margin-top: 0;
+}
+/*AI stopped*/

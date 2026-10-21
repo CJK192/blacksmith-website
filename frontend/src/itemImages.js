@@ -1,5 +1,5 @@
-// every item picture in one place - used by the item pages, home tiles and the cart
-// itemImages['Sword']['Red'] gives the red sword picture
+// every item picture- AI used
+// itemImages['Sword']['Red'] = red sword
 
 import swordBlack from './assets/items/sword-black.png'
 import swordBlue from './assets/items/sword-blue.png'
@@ -31,3 +31,4 @@ export const itemImages = {
   'Plate Armor': { Black: plateArmorBlack, Blue: plateArmorBlue, Silver: plateArmorSilver, Red: plateArmorRed, Gold: plateArmorGold },
   'Cooking Pot': { Black: cookingPotBlack, Blue: cookingPotBlue, Silver: cookingPotSilver, Red: cookingPotRed, Gold: cookingPotGold },
 };
+// AI stopped

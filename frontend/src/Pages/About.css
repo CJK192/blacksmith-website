@@ -1,0 +1,35 @@
+/*about page react bits styles- AI used*/
+
+/* story text */
+.about-story {
+  margin: 0 0 1rem;
+}
+
+.about-story .about-story-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-weight: normal;
+  color: #555;
+}
+
+/* team cards */
+.about-profile {
+  width: 100%;
+  margin-bottom: 0.75rem;
+}
+
+/* keeps photos sharp */
+.about-profile .profile-card__photo {
+  object-fit: cover;
+  object-position: top;
+  image-rendering: pixelated;
+}
+
+/* pixel font on names */
+.about-profile .profile-card__name,
+.about-profile .profile-card__title {
+  font-family: var(--font);
+  color: white;
+}
+
+/*AI stopped*/

@@ -1,0 +1,45 @@
+.ht-game{box-sizing:border-box;width:100%;max-width:720px;padding:20px;background:#202321;color:#f8edda;border:2px solid #645b4d;font-family:'Courier New',monospace;container-type:inline-size}
+.ht-game *{box-sizing:border-box}.ht-game:focus-visible,.ht-game button:focus-visible{outline:3px solid #ffc85a;outline-offset:4px}
+.ht-game .ht-hud{display:flex;align-items:center;flex-wrap:wrap;gap:12px 20px;font-size:13px}.ht-game .ht-hud>strong{color:#ffc85a;margin-right:auto;font-size:14px;letter-spacing:1px}.ht-game .ht-score{display:inline-block;color:#ffc85a;animation:ht-pop .25s ease-out}
+.ht-game .ht-scene{display:grid;place-items:center;height:240px;margin-top:18px;overflow:hidden;background:radial-gradient(ellipse at bottom,#5d381e,#242824 70%);border:1px solid #464b40}.ht-game .ht-scene svg{height:230px;width:330px;max-width:100%}.ht-game .hammer{transform-origin:180px 45px}.ht-game .spark{display:none}.ht-game .ht-swing .hammer{animation:ht-strike .22s ease-out}
+.ht-game .ht-feedback{min-height:44px;margin:16px 0 12px;font:16px/1.4 'Courier New',monospace;color:#ffc85a}
+.ht-game .ht-track{height:44px;position:relative;overflow:hidden;background:#101311;border:2px solid #645b4d}.ht-game .ht-zone,.ht-game .ht-perfect{position:absolute;top:0;height:100%;background:#668b5b}.ht-game .ht-perfect{background:#ffc85a}.ht-game .ht-marker{position:absolute;left:50%;height:100%;width:5px;background:white;box-shadow:0 0 0 2px #101311;transform:translateX(-50%)}
+.ht-game .ht-controls{display:flex;gap:8px;margin-top:18px}.ht-game button{border:2px solid #645b4d;border-radius:0;padding:13px;background:#202321;color:#f8edda;font:bold 14px 'Courier New',monospace;cursor:pointer;transition:background .15s,transform .1s}.ht-game button:hover:not(:disabled){background:#414538}.ht-game button:active:not(:disabled){transform:translateY(2px)}.ht-game button:disabled{opacity:.45;cursor:default}.ht-game .ht-strike{flex:1;background:#ffc85a;color:#171918;border-color:#ffc85a}.ht-game .ht-strike:hover{background:#ffdb8d!important}.ht-game .ht-hint{font:12px/1.5 'Courier New',monospace;color:#b4aa99;margin:12px 0 0}
+@keyframes ht-strike{50%{transform:rotate(-36deg)}}@keyframes ht-pop{50%{transform:scale(1.2)}}@container(max-width:380px){.ht-game .ht-hud>strong{width:100%}.ht-game .ht-controls{flex-wrap:wrap}.ht-game .ht-strike{flex-basis:100%}.ht-game .ht-scene{height:180px}.ht-game .ht-scene svg{height:180px}}
+@media(prefers-reduced-motion:reduce){.ht-game .ht-swing .hammer,.ht-game .ht-score{animation:none}.ht-game button{transition:none}}
+
+.ht-game.spotlight-card{border-radius:0;background-color:#202321;padding:20px;overflow:visible}
+.ht-game .ht-quality-heading{display:flex;justify-content:space-between;margin:22px 0 8px;font-size:11px;letter-spacing:2px;color:#c1b99f}.ht-game .ht-quality-heading strong{color:#ffc85a}
+.ht-game .ht-quality-meter{position:relative;height:7px;background:#101311}.ht-game .ht-quality-meter>div{height:100%;background:linear-gradient(90deg,#b76a38,#ffc85a);transition:width .3s ease-out}.ht-game .ht-quality-meter i{position:absolute;left:65%;top:-3px;height:13px;border-left:2px solid #f8edda}
+.ht-game .ht-challenge{font:12px/1.5 'Courier New',monospace;color:#b4aa99;margin:10px 0 0}
+.ht-game .ht-reward{display:flex;flex-direction:column;gap:12px;margin:22px 0 0;padding:24px;width:100%;text-align:center;background:linear-gradient(135deg,#302a1c,#191d19);color:#f8edda;animation:ht-reveal .4s ease-out}
+.ht-game .ht-reward-label{font-size:10px;letter-spacing:2px;color:#ffc85a}.ht-game .ht-reward h2{font:700 38px/1.1 'Courier New',monospace;color:#ffc85a;margin:12px 0}.ht-game .ht-reward p{font:13px/1.5 'Courier New',monospace;margin:0;color:#c1b99f}.ht-game .ht-reward code{padding:12px 16px;border:1px dashed #a98849;font:700 clamp(14px,4cqw,23px) 'Courier New',monospace;letter-spacing:2px;user-select:all}.ht-game .ht-copy-status{font-size:12px;min-height:14px}.ht-game .ht-no-prize{font:14px/1.6 'Courier New',monospace;color:#c1b99f;padding:16px;border:1px solid #645b4d;margin-bottom:0}
+@keyframes ht-reveal{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.ht-game .ht-reward{animation:none}.ht-game .ht-quality-meter>div{transition:none}}
+
+/* Pixel-art skin, matched to the supplied blacksmith website reference. */
+.ht-game.spotlight-card{background:#30363d;border:3px solid #edf3f6;box-shadow:none;color:#f4f7fa;font-family:var(--font,'Geist Pixel','Courier New',monospace)}
+.ht-game .ht-hud{padding-bottom:15px;border-bottom:3px solid #a92535;gap:10px 16px}
+.ht-game .ht-hud>strong{color:#f6d952;letter-spacing:1px}.ht-game .ht-score{color:#f6d952;animation-timing-function:steps(3,end)}
+.ht-game .ht-scene{background:#c4d8e4;border:3px solid #edf3f6;height:256px;box-shadow:inset 0 -8px 0 #afc5d3}
+.ht-game .ht-scene svg{width:384px;height:256px;image-rendering:pixelated;shape-rendering:crispEdges}
+.ht-game .hammer{transform-origin:59px 25px}.ht-game .ht-swing .hammer{animation:ht-pixel-strike .24s steps(3,end)}
+.ht-game .ht-feedback{color:#f5da62;font-family:inherit}.ht-game .ht-quality-heading{color:#edf3f6}.ht-game .ht-quality-heading strong{color:#f6d952}
+.ht-game .ht-quality-meter{background:#111820;border:1px solid #eef3f6;height:9px}.ht-game .ht-quality-meter>div{background:#e3c44b;transition:width .24s steps(5,end)}
+.ht-game .ht-challenge,.ht-game .ht-hint{color:#d0d9e0;font-family:inherit}.ht-game .ht-track{border:3px solid #edf3f6;background:#101720;height:44px}.ht-game .ht-zone{background:#538c70}.ht-game .ht-perfect{background:#f5d656}
+.ht-game button{border:2px solid #edf3f6;background:#151c25;color:#f4f7fa;font-family:inherit;box-shadow:inset -3px -3px 0 #0005;transition:none}.ht-game .ht-strike{background:#aa2638;border-color:#edf3f6;color:#fff}.ht-game .ht-strike:hover{background:#c53549!important}.ht-game button:hover:not(:disabled){background:#354454}.ht-game button:active:not(:disabled){transform:translateY(2px);box-shadow:inset 3px 3px 0 #0005}
+.ht-game .ht-reward{background:#111923;border:2px solid #f5d656;animation:ht-reveal .3s steps(4,end);box-shadow:6px 6px 0 #1118}.ht-game .ht-reward h2{font-family:inherit;color:#f5d656;text-shadow:3px 3px 0 #8b572c}.ht-game .ht-reward p,.ht-game .ht-no-prize{font-family:inherit;color:#edf3f6}.ht-game .ht-reward code{background:#30363d;border:2px dashed #f5d656;color:#fff}.ht-game .ht-reward-label{color:#f5d656}.ht-game .ht-no-prize{border:2px solid #edf3f6}
+@keyframes ht-pixel-strike{0%,100%{transform:translateY(0)}50%{transform:translateY(9px)}}
+@container(max-width:380px){.ht-game .ht-scene{height:192px}.ht-game .ht-scene svg{width:288px;height:192px}}
+@media(prefers-reduced-motion:reduce){.ht-game .ht-swing .hammer,.ht-game .ht-reward{animation:none}.ht-game .ht-quality-meter>div{transition:none}}
+
+/* Smooth forging illustration: swing around the grip, contact, recoil. */
+.ht-game .ht-scene svg{image-rendering:auto;shape-rendering:geometricPrecision}
+.ht-game .hammer{transform-box:view-box;transform-origin:263px 113px;transform:rotate(55deg)}
+.ht-game .ht-swing .hammer{animation:ht-hammer-hit 350ms linear}
+.ht-game .ht-impact{opacity:0}.ht-game .ht-swing .ht-impact{animation:ht-contact 350ms linear}
+.ht-game .ht-swing .ht-blade{animation:ht-blade-recoil 350ms linear}
+@keyframes ht-hammer-hit{0%{transform:rotate(55deg)}18%{transform:rotate(66deg);animation-timing-function:cubic-bezier(.65,0,1,.5)}40%,46%{transform:rotate(0deg)}64%{transform:rotate(22deg)}76%{transform:rotate(14deg)}100%{transform:rotate(55deg)}}
+@keyframes ht-contact{0%,38%{opacity:0}40%,48%{opacity:1}70%,100%{opacity:0}}
+@keyframes ht-blade-recoil{0%,39%,70%,100%{transform:translateY(0)}42%{transform:translateY(2px)}52%{transform:translateY(-1px)}}
+@media(prefers-reduced-motion:reduce){.ht-game .ht-swing .hammer,.ht-game .ht-swing .ht-blade{animation:none}.ht-game .ht-swing .ht-impact{animation:none}}

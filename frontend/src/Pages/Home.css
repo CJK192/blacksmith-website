@@ -1,4 +1,3 @@
-/* home page layout - inventory on the left, to do list on the right */
 .home-page {
   display: grid;
   grid-template-columns: 7fr 3fr;
@@ -12,7 +11,6 @@
   box-sizing: border-box;
 }
 
-/* grey panels, same as the old catalouge + to-do-list boxes */
 .home-inventory, .home-todos {
   min-width: 0;
   padding: 1.5rem;
@@ -38,7 +36,7 @@
   gap: 1.25rem;
 }
 
-/* the navbar "a" styles in index.css hit these links too, so reset them here */
+/* fixes index.css "a" styles */
 .home-page .home-item-card {
   display: flex;
   flex-direction: column;
@@ -53,7 +51,6 @@
   transition: transform 0.1s;
 }
 
-/* white picture box, same as the item pages */
 .home-item-preview {
   display: flex;
   align-items: center;
@@ -74,7 +71,6 @@
   font-size: 1.75rem;
 }
 
-/* red button, same as add to cart */
 .home-item-detail {
   margin: 0.75rem;
   padding: 0.5rem;
@@ -85,7 +81,6 @@
   text-align: center;
 }
 
-/* hover = yellow like the selected navbar tab */
 .home-page .home-item-card:hover {
   background: #ffdd00;
   color: #0e0e0e;
@@ -99,7 +94,44 @@
   transform: scale(0.97);
 }
 
-/* AI support helper in the bottom corner */
+/*play game button- AI used*/
+
+.home-page .home-play-game {
+  display: block;
+  width: auto;
+  height: auto;
+  margin-top: 1.25rem;
+  padding: 1rem;
+  font-size: 2rem;
+  text-align: center;
+  transition: transform 0.1s;
+}
+
+.home-page .home-play-game:active {
+  transform: scale(0.97);
+}
+
+/*AI stopped*/
+
+/*react bits stuff- AI used*/
+
+.home-embers {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.home-item-preview .tilted-card__front {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+}
+
+/*AI stopped*/
+
+/* AI support button in the corner */
 .home-support {
   position: fixed;
   right: 1.5rem;
