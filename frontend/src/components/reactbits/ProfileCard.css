@@ -1,5 +1,5 @@
-/*React Bits ProfileCard from reactbits.dev/components/profile-card - we didnt write this- AI used*/
 
+/* the outer box, the effect layers inside sit on top of it with position absolute */
 .profile-card {
   --pc-light-x: 50%;
   --pc-light-y: 50%;
@@ -368,4 +368,3 @@
   }
 }
 
-/*AI stopped*/

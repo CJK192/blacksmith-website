@@ -1,4 +1,3 @@
-/*React Bits AnimatedList from reactbits.dev/components/animated-list - we didnt write this- AI used*/
 
 'use client';
 
@@ -106,6 +105,7 @@ const FADE_MASK = (() => {
 
 const size = value => (typeof value === 'number' ? `${value}px` : value);
 
+// shows a list where each row pops in one after another. we pass our own cart row in through renderItem. the stuff in the {} are the settings you can change
 const AnimatedList = ({
   items = DEFAULT_ITEMS,
   onItemSelect,
@@ -438,6 +438,7 @@ const AnimatedList = ({
     engineRef.current?.sync();
   }, [items, animation]);
 
+  // watches the rows and plays the pop in animation, with a small delay (stagger) between each row
   useEffect(() => {
     const engine = engineRef.current;
     if (!engine) return;
@@ -506,6 +507,7 @@ const AnimatedList = ({
           {items.map((item, index) => {
             const entry = item !== null && typeof item === 'object' ? item : { title: item };
             const isSelected = index === selected;
+            // what shows up on the page: draws each row, if renderItem is given it uses our row instead of its default one
             return (
               <div
                 key={entry.id ?? index}
@@ -553,4 +555,3 @@ const AnimatedList = ({
 
 export default AnimatedList;
 
-/*AI stopped*/

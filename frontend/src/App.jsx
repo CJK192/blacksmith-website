@@ -5,20 +5,16 @@ import About from './Pages/About'
 import Cart from './Pages/Cart'
 import ItemPage from './Pages/ItemPage'
 
-
 import { Routes, Route } from 'react-router-dom'
 import SwordPage from './Pages/SwordPage'
 import ChainmailPage from './Pages/ChainmailPage'
 import PlateArmorPage from './Pages/PlateArmorPage'
 import CookingPotPage from './Pages/CookingPotPage'
-// game page- AI used
 import GamePage from './Pages/GamePage'
-// AI stopped
 
 function App()
 {
   return <div>
-
 
   <NavBar />
   <Routes>
@@ -31,9 +27,8 @@ function App()
     <Route path = '/chainmail' element={<ChainmailPage />}/>
     <Route path = '/platearmor' element={<PlateArmorPage />}/>
     <Route path = '/cookingpot' element={<CookingPotPage />}/>
-    {/*game page- AI used*/}
+    {/* game page, the Play Game! button on the home page links here */}
     <Route path = '/game' element={<GamePage />}/>
-    {/*AI stopped*/}
   </Routes>
 
   </div>

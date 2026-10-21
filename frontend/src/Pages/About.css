@@ -1,6 +1,5 @@
-/*about page react bits styles- AI used*/
 
-/* story text */
+/* story text, same size and color as the old paragraphs (ScrollReveal makes it huge by default) */
 .about-story {
   margin: 0 0 1rem;
 }
@@ -12,24 +11,23 @@
   color: #555;
 }
 
-/* team cards */
+/* team cards fill their column so all 4 line up */
 .about-profile {
   width: 100%;
   margin-bottom: 0.75rem;
 }
 
-/* keeps photos sharp */
+/* pixelated keeps the pixel art photos sharp, top keeps the face in view */
 .about-profile .profile-card__photo {
   object-fit: cover;
   object-position: top;
   image-rendering: pixelated;
 }
 
-/* pixel font on names */
+/* card names use the site's pixel font instead of the card's default font */
 .about-profile .profile-card__name,
 .about-profile .profile-card__title {
   font-family: var(--font);
   color: white;
 }
 
-/*AI stopped*/

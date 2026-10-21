@@ -1,4 +1,3 @@
-/*React Bits PillNav from reactbits.dev/components/pill-nav - we didnt write this- AI used*/
 
 'use client';
 
@@ -136,6 +135,7 @@ const contrastInk = color => {
 
 const readVar = (element, name) => parseFloat(getComputedStyle(element).getPropertyValue(name)) || 0;
 
+// the navbar links. it measures if the links fit and turns them into a menu button if they dont. the stuff in the {} are the settings you can change
 const PillNav = ({
   logo,
   logoAlt = 'Logo',
@@ -236,6 +236,7 @@ const PillNav = ({
     vars['--pn-pill-ink'] = highlightTextColor;
   }
 
+  // moves the hover highlight and the dot under the page you're on
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return undefined;
@@ -723,6 +724,7 @@ const PillNav = ({
     </>
   );
 
+  // what shows up on the page: if the links fit: the row of links. if not: the menu button and the drop down menu
   return (
     <nav
       ref={rootRef}
@@ -861,4 +863,3 @@ const PillNav = ({
 
 export default PillNav;
 
-/*AI stopped*/

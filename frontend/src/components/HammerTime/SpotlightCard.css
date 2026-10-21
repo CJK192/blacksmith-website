@@ -1,3 +1,5 @@
+
+/* the outer box, the effect layers inside sit on top of it with position absolute */
 .spotlight-card {
   position: relative;
   isolation: isolate;
@@ -49,3 +51,4 @@
 .spotlight-card__edge {
   opacity: 0;
 }
+

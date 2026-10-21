@@ -1,10 +1,9 @@
-// new navbar- AI used
 import { Link, useLocation } from 'react-router-dom'
 import PillNav from './reactbits/PillNav';
 import AnvilIcon from './AnvilIcon';
 import './NavBar.css';
 
-// navbar pages, add one here to put it on the navbar
+// the links in the navbar. add a page here and it shows up on desktop and in the phone menu
 const navItems = [
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
@@ -12,7 +11,7 @@ const navItems = [
     { label: 'Cart', href: '/cart' },
 ];
 
-// Link needs "to" not "href"
+// PillNav makes links with "href" but react router's Link wants "to", so this just swaps it
 function RouterLink({ href, ...props })
 {
     return <Link to={href} {...props} />
@@ -20,7 +19,7 @@ function RouterLink({ href, ...props })
 
 function NavBar()
 {
-    // page you're on gets highlighted
+    // useLocation gives the page you're on, PillNav highlights the link that matches it
     const page = useLocation().pathname;
 
     return <header className="site-nav">
@@ -42,7 +41,7 @@ function NavBar()
                 textColor="#ffffff"
                 highlightColor="#ffdd00"
                 highlightTextColor="#0e0e0e"
-                intro={false} // animation was buggy so its off
+                intro={false} // the opening animation sometimes got stuck and hid the links, so its off
                 ariaLabel="Main"
             />
         </div>
@@ -50,4 +49,3 @@ function NavBar()
 }
 
 export default NavBar;
-// AI stopped

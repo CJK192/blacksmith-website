@@ -2,11 +2,9 @@ import member1 from '../assets/team/member1.png'
 import member2 from '../assets/team/member2.png'
 import member3 from '../assets/team/member3.png'
 import member4 from '../assets/team/member4.png'
-// react bits- AI used
 import ProfileCard from '../components/reactbits/ProfileCard'
 import ScrollReveal from '../components/reactbits/ScrollReveal'
 import './About.css'
-// AI stopped
 
 function About() {
   return (
@@ -31,14 +29,13 @@ function About() {
       {/* story*/}
       <section style={{ marginBottom: '4rem' }}>
         <h2 style={{ marginBottom: '1rem', color: 'white' }}>Our Story</h2>
-        {/*story fades in- AI used*/}
+        {/* ScrollReveal fades the story in word by word as you scroll down to it */}
         <ScrollReveal containerClassName="about-story" textClassName="about-story-text" baseRotation={0} blurStrength={3}>
           We are simple business that started through Gunter's passion for blacksmithing. Starting through projects in his barn, a hobby has grown into a business that serves customers with high-quality products and exceptional service.
         </ScrollReveal>
         <ScrollReveal containerClassName="about-story" textClassName="about-story-text" baseRotation={0} blurStrength={3}>
           Every product is carefully crafted with attention to detail and a commitment to excellence.
         </ScrollReveal>
-        {/*AI stopped*/}
       </section>
 
       {/* team*/}
@@ -109,9 +106,8 @@ function About() {
                   borderRight: idx !== 3 ? 'dotted 2px #ddd' : 'none'
                 }}
               >
-                {/*team cards- AI used*/}
+                {/* ProfileCard turns each team photo into a card that tilts and shines when you move your mouse over it */}
                 <ProfileCard avatarUrl={member.image} name={member.name} title={member.role} showUserInfo={false} className="about-profile" />
-                {/*AI stopped*/}
                 <p style={{ fontSize: '0.8rem', lineHeight: '1.3', color: '#555' }}>
                   {member.description}
                 </p>

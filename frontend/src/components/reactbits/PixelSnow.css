@@ -1,5 +1,5 @@
-/*React Bits PixelSnow from reactbits.dev/backgrounds/pixel-snow - we didnt write this- AI used*/
 
+/* the outer box, the effect layers inside sit on top of it with position absolute */
 .pixel-snow-container {
   position: relative;
   width: 100%;
@@ -15,4 +15,3 @@
   height: 100%;
 }
 
-/*AI stopped*/

@@ -1,19 +1,17 @@
 import { useState } from 'react';
-// react bits- AI used
 import GlareHover from '../components/reactbits/GlareHover';
 import ShinyText from '../components/reactbits/ShinyText';
 import { useCart } from '../CartContext';
 import { itemImages } from '../itemImages';
-// AI stopped
 
 function CookingPotPage() {
-  const { addToCart } = useCart(); {/*opens the shared cart*/}
+  const { addToCart } = useCart(); {/*grabs addToCart from the shared cart so the button can add this item*/}
   const price = "67.00"; // add price here
   const [selectedColor, setSelectedColor] = useState('Black'); {/*sets default color*/}
 
   const colors = ['Black', 'Red', 'Blue', 'Silver', 'Gold']; {/*available colors*/}
 
-  const colorImages = itemImages['Cooking Pot']; {/*pictures for each color*/}
+  const colorImages = itemImages['Cooking Pot']; {/*this item's 5 pictures from itemImages.js, the one shown matches the color you pick*/}
 
   const imageUrl = colorImages[selectedColor];
 
@@ -21,7 +19,7 @@ function CookingPotPage() {
     <div style={{ display: 'flex', gap: '2rem' }}> {/*display flex, gap 2rem splits page in half*/}
 
       <div style={{ flex: 1 }}> {/*take up half of the page*/}
-      {/*shine on picture- AI used*/}
+      {/* GlareHover sweeps a gold shine across the picture when you hover it */}
       <GlareHover width="100%" height="auto" background="white" borderRadius="8px" glareColor="#ffb300" glareOpacity={0.5} blendMode="multiply">
       <div style={{
         width: '100%',
@@ -39,15 +37,13 @@ function CookingPotPage() {
         )}
       </div>
       </GlareHover>
-      {/*AI stopped*/}
     </div>
 
     {/*text*/}
     <div style={{ flex: 1 }}>
       <h1>Cooking Pot</h1> {/*item name*/}
-      {/*shiny price- AI used*/}
+      {/* ShinyText runs a gold shine across the price */}
       <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#d32f2f', marginBottom: '2rem' }}><ShinyText text={'$' + price} color='#d32f2f' shineColor='#ffdd00' speed={3} /></p>
-      {/*AI stopped*/}
 
 {/*Color Options- AI used*/}
       <div style={{ marginBottom: '2rem' }}>

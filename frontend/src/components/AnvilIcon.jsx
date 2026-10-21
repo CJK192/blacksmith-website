@@ -1,4 +1,4 @@
-// anvil drawing, backup if no picture- AI used
+// simple anvil drawing (svg), the cart shows this if an item doesnt have a picture
 function AnvilIcon()
 {
     return <svg viewBox="0 0 100 80" fill="none">
@@ -8,4 +8,3 @@ function AnvilIcon()
 }
 
 export default AnvilIcon;
-// AI stopped

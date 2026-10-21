@@ -1,5 +1,5 @@
-// every item picture- AI used
-// itemImages['Sword']['Red'] = red sword
+// every item picture is imported here and grouped by item, then color.
+// any page can do itemImages['Sword']['Red'] to get the red sword picture
 
 import swordBlack from './assets/items/sword-black.png'
 import swordBlue from './assets/items/sword-blue.png'
@@ -31,4 +31,3 @@ export const itemImages = {
   'Plate Armor': { Black: plateArmorBlack, Blue: plateArmorBlue, Silver: plateArmorSilver, Red: plateArmorRed, Gold: plateArmorGold },
   'Cooking Pot': { Black: cookingPotBlack, Blue: cookingPotBlue, Silver: cookingPotSilver, Red: cookingPotRed, Gold: cookingPotGold },
 };
-// AI stopped

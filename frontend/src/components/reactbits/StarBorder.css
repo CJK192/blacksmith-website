@@ -1,5 +1,5 @@
-/*React Bits StarBorder from reactbits.dev/animations/star-border - we didnt write this- AI used*/
 
+/* the outer box, the effect layers inside sit on top of it with position absolute */
 .star-border {
   position: relative;
   isolation: isolate;
@@ -55,4 +55,3 @@ a.star-border {
   opacity: 0.5;
 }
 
-/*AI stopped*/

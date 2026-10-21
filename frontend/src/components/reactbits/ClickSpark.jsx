@@ -1,4 +1,3 @@
-/*React Bits ClickSpark from reactbits.dev/animations/click-spark - we didnt write this- AI used*/
 
 'use client';
 
@@ -62,6 +61,7 @@ const channels = (ctx, color) => {
   return [0, 0, 0];
 };
 
+// wraps the whole site and listens for clicks. every click draws a burst of sparks right where the mouse is. the stuff in the {} are the settings you can change
 const ClickSpark = forwardRef(
   (
     {
@@ -111,6 +111,7 @@ const ClickSpark = forwardRef(
     const settingsRef = useRef(settings);
     settingsRef.current = settings;
 
+    // sets up the spark drawing and the click listener, and cleans them up when the page closes
     useEffect(() => {
       const root = rootRef.current;
       const layer = layerRef.current;
@@ -394,6 +395,7 @@ const ClickSpark = forwardRef(
       []
     );
 
+    // what shows up on the page: the site goes inside, plus an invisible layer on top where the sparks get drawn (it doesnt block clicks)
     return (
       <div
         ref={rootRef}
@@ -421,4 +423,3 @@ ClickSpark.displayName = 'ClickSpark';
 
 export default ClickSpark;
 
-/*AI stopped*/

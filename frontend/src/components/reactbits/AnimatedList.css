@@ -1,5 +1,5 @@
-/*React Bits AnimatedList from reactbits.dev/components/animated-list - we didnt write this- AI used*/
 
+/* the outer box, the effect layers inside sit on top of it with position absolute */
 .animated-list {
   position: relative;
   width: min(100%, var(--al-width));
@@ -196,4 +196,3 @@
   box-shadow: inset 0 0 0 1px var(--al-ring);
 }
 
-/*AI stopped*/

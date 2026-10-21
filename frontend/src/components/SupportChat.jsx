@@ -1,8 +1,7 @@
-// AI support chat- AI used
 import { useEffect, useRef, useState } from 'react';
 import './SupportChat.css';
 
-// talks to backend/assistant.py on whatever computer is hosting the site
+// builds the helper's address from the page's address, so it works on localhost and on the network without changing anything
 const CHAT_URL = `${window.location.protocol}//${window.location.hostname}:5001/api/chat`;
 
 function SupportChat()
@@ -13,11 +12,12 @@ function SupportChat()
     const [error, setError] = useState('');
     const bottomRef = useRef(null);
 
-    // keeps the newest message in view
+    // every time a message gets added, scroll to the bottom so you see the newest one
     useEffect(() => {
         bottomRef.current?.scrollIntoView({ block: 'nearest' });
     }, [messages, loading]);
 
+    // adds your message, sends the whole chat to the helper server, then adds its reply
     async function send(event)
     {
         event.preventDefault();
@@ -40,7 +40,7 @@ function SupportChat()
             if (!response.ok) throw new Error(data.error || 'Something went wrong.');
             setMessages([...history, { role: 'assistant', content: data.reply }]);
         } catch (err) {
-            // take the message back so they can try again
+            // if it fails, take your message back out of the chat and put it back in the box so you can try again
             setMessages(messages);
             setInput(text);
             setError(err instanceof TypeError ? "Can't reach the helper. Is assistant.py running?" : err.message);
@@ -77,4 +77,3 @@ function SupportChat()
 }
 
 export default SupportChat;
-// AI stopped

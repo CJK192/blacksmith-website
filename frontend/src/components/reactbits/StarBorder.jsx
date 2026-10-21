@@ -1,4 +1,3 @@
-/*React Bits StarBorder from reactbits.dev/animations/star-border - we didnt write this- AI used*/
 
 'use client';
 
@@ -129,6 +128,7 @@ const project = (shape, px, py) => {
   return found;
 };
 
+// a button (or a link with as=) with a light that runs around its border. the stuff in the {} are the settings you can change
 const StarBorder = ({
   as: Component = 'button',
   children,
@@ -175,6 +175,7 @@ const StarBorder = ({
   const settingsRef = useRef(settings);
   settingsRef.current = settings;
 
+  // draws the moving light around the edge every frame, and pulses it when you click
   useEffect(() => {
     const root = rootRef.current;
     const canvas = canvasRef.current;
@@ -547,6 +548,7 @@ const StarBorder = ({
     wakeRef.current?.();
   });
 
+  // what shows up on the page: the button, with the canvas for the light behind its text
   return (
     <Component
       ref={rootRef}
@@ -570,4 +572,3 @@ const StarBorder = ({
 
 export default StarBorder;
 
-/*AI stopped*/

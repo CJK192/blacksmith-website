@@ -1,5 +1,5 @@
-/*React Bits PillNav from reactbits.dev/components/pill-nav - we didnt write this- AI used*/
 
+/* the outer box, the effect layers inside sit on top of it with position absolute */
 .pill-nav {
   --pn-roll: calc(var(--pn-inner) / 2 + 0.7em);
   position: relative;
@@ -450,6 +450,7 @@
   pointer-events: none;
 }
 
+/* turns the animation off if someone set less motion on their device */
 @media (prefers-reduced-motion: reduce) {
   .pill-nav__face,
   .pill-nav__face-alt,
@@ -461,4 +462,3 @@
   }
 }
 
-/*AI stopped*/

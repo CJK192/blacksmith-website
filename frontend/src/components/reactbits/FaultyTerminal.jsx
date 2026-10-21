@@ -1,4 +1,3 @@
-/*React Bits FaultyTerminal from reactbits.dev/backgrounds/faulty-terminal - we didnt write this- AI used*/
 
 'use client';
 
@@ -499,6 +498,7 @@ const hexToRgb = hex => {
   return [((num >> 16) & 255) / 255, ((num >> 8) & 255) / 255, (num & 255) / 255];
 };
 
+// glitchy screen made of blocks, drawn with webgl (the graphics card). tint sets the color. the stuff in the {} are the settings you can change
 export default function FaultyTerminal({
   scale = 1,
   gridMul = [2, 1],
@@ -568,6 +568,7 @@ export default function FaultyTerminal({
   const settingsRef = useRef(settings);
   settingsRef.current = settings;
 
+  // sets up webgl and the draw loop. it pauses when the page is hidden so it doesnt waste power
   useEffect(() => {
     const container = containerRef.current;
     const canvas = canvasRef.current;
@@ -859,6 +860,7 @@ export default function FaultyTerminal({
     wakeRef.current?.();
   });
 
+  // what shows up on the page: a box with the canvas the screen gets drawn on
   return (
     <div
       ref={containerRef}
@@ -871,4 +873,3 @@ export default function FaultyTerminal({
   );
 }
 
-/*AI stopped*/

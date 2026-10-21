@@ -1,11 +1,11 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 
-// the shared box
+// createContext makes a shared "box" for the cart, any page can open it with useCart()
 const CartContext = createContext();
 
 const SAVE_NAME = 'gunters-cart';
 
-// loads saved cart when site opens
+// when the site opens, grab the cart we saved in the browser last time. if there isnt one or its broken, start with an empty cart
 function loadCart() {
   try {
     const saved = localStorage.getItem(SAVE_NAME);
@@ -21,7 +21,7 @@ export function CartProvider({ children }) {
   
   // AI use starts here
 
-  // saves cart every time it changes
+  // useEffect runs every time the cart changes and saves it to the browser as text (JSON), so refreshing doesnt empty it
   useEffect(() => {
     try {
       localStorage.setItem(SAVE_NAME, JSON.stringify(cart));
@@ -39,7 +39,7 @@ export function CartProvider({ children }) {
     setCart([]);
   }
 
-  // adds item, or +1 if its already in cart
+  // if the same item in the same color is already in the cart, add 1 to its quantity. otherwise add it as a new row
   function addToCart(name, price, color) {
     const alreadyIn = cart.find((item) => item.name === name && item.color === color);
 

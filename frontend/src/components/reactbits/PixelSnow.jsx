@@ -1,4 +1,3 @@
-/*React Bits PixelSnow from reactbits.dev/backgrounds/pixel-snow - we didnt write this- AI used*/
 
 'use client';
 
@@ -302,6 +301,7 @@ const buildAtlas = () => {
   return { data, width, height };
 };
 
+// falling pixels drawn with webgl. we set the color to orange so they look like embers. the stuff in the {} are the settings you can change
 export default function PixelSnow({
   color = '#ffffff',
   variant = 'snowflake',
@@ -354,6 +354,7 @@ export default function PixelSnow({
   const settingsRef = useRef(settings);
   settingsRef.current = settings;
 
+  // sets up webgl and the loop that moves every pixel each frame
   useEffect(() => {
     const container = containerRef.current;
     const canvas = canvasRef.current;
@@ -839,6 +840,7 @@ export default function PixelSnow({
     wakeRef.current?.();
   });
 
+  // what shows up on the page: a box with the canvas the pixels get drawn on
   return (
     <div ref={containerRef} className={`pixel-snow-container${className ? ` ${className}` : ''}`} {...rest}>
       <canvas ref={canvasRef} className="pixel-snow-canvas" aria-hidden="true" />
@@ -846,4 +848,3 @@ export default function PixelSnow({
   );
 }
 
-/*AI stopped*/

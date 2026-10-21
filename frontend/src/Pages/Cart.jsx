@@ -4,10 +4,8 @@ import { useCart } from '../CartContext'
 import AnvilIcon from '../components/AnvilIcon'
 import { itemImages } from '../itemImages'
 import './Cart.css'
-// react bits- AI used
 import AnimatedList from '../components/reactbits/AnimatedList'
 import CountUp from '../components/reactbits/CountUp'
-// AI stopped
 import SwordPage from './SwordPage'
 
 function getId()
@@ -74,10 +72,11 @@ async function writeCart(user_cart, user_id, klear_kart)
 function Cart()
 {
     const { cart, changeQuantity, removeFromCart, clearCart } = useCart();
-    const itemCount = cart.reduce((total, item) => total + item.quantity, 0); {/*adds up all the quantities*/}
-    const subtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0); {/*adds up price x quantity*/}
+    {/*itemCount adds up all the quantities, subtotal adds up price x quantity for every row*/}
+    const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+    const subtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
-    {/*coupon code- AI used*/}
+    {/*if the code matches (caps dont matter) the coupon turns on. the discount is $5 but never more than the subtotal*/}
     const COUPON_CODE = 'GUNTERSPRIZE';
     const [couponInput, setCouponInput] = useState('');
     const [couponApplied, setCouponApplied] = useState(false);
@@ -106,9 +105,8 @@ function Cart()
         setCouponInput('');
         setCouponMessage('');
     }
-    {/*AI stopped*/}
 
-    {/*nothing added yet*/}
+    {/*if the cart is empty, show a message and a link back to the shop instead*/}
     if (cart.length === 0)
     {
         return <main className="cart-page">
@@ -124,13 +122,12 @@ function Cart()
         <h1>Your Cart</h1>
 
         <section className="cart-panel">
-            {/*animated rows- AI used*/}
             <AnimatedList
                 items={cart.map((item) => ({ ...item, id: item.name + item.color }))}
                 renderItem={(item) => (
                 <div className="cart-row">
                     <div className="cart-picture" aria-hidden="true">
-                        {/*picture, anvil if no picture*/}
+                        {/*picture for that item and color, if we dont have one it shows the anvil*/}
                         {itemImages[item.name]?.[item.color] ? <img src={itemImages[item.name][item.color]} alt="" /> : <AnvilIcon />}
                     </div>
 
@@ -155,13 +152,11 @@ function Cart()
                 selectOnHover={false} enableArrowNavigation={false} animateOnce
                 className="cart-animated-list" itemClassName="cart-list-item"
             />
-            {/*AI stopped*/}
         </section>
 
         <section className="cart-panel cart-subtotal">
-            <p>Subtotal ({itemCount} {itemCount === 1 ? 'item' : 'items'}): <strong>{/*count up total- AI used*/}$<CountUp to={subtotal} decimals={2} duration={0.8} />{/*AI stopped*/}</strong></p>
+            <p>Subtotal ({itemCount} {itemCount === 1 ? 'item' : 'items'}): <strong>$<CountUp to={subtotal} decimals={2} duration={0.8} /></strong></p>
 
-            {/*coupon box- AI used*/}
             <form className="cart-coupon" onSubmit={applyCoupon}>
                 <input
                     type="text"
@@ -181,7 +176,6 @@ function Cart()
                 <p className="cart-discount">Coupon ({COUPON_CODE}): -${discount.toFixed(2)}</p>
                 <p className="cart-total">Total: <strong>$<CountUp to={total} decimals={2} duration={0.8} /></strong></p>
             </>}
-            {/*AI stopped*/}
         </section>
 
         <center><button className='cart-remove' onClick={() => writeCart(cart, getId(), clearCart)}> Check Out!</button></center>

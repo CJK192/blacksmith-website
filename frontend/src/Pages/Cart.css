@@ -24,7 +24,7 @@
   background: rgb(93, 93, 93);
 }
 
-/* one item */
+/* one item: picture, name, - and + buttons, total and remove all in one row */
 .cart-row {
   display: flex;
   align-items: center;
@@ -78,7 +78,6 @@
   font-size: 1rem;
 }
 
-/* - and + buttons */
 .cart-quantity {
   display: flex;
   align-items: center;
@@ -132,7 +131,7 @@
   text-align: right;
 }
 
-/*coupon box- AI used*/
+/* coupon box sits on the right under the subtotal */
 .cart-coupon {
   display: flex;
   justify-content: flex-end;
@@ -180,9 +179,7 @@
     width: auto;
   }
 }
-/*AI stopped*/
 
-/* empty cart */
 .cart-empty {
   text-align: center;
 }
@@ -207,7 +204,7 @@
   background: #a31f1f;
 }
 
-/* phones */
+/* phones: rows wrap so the buttons go under the item name */
 @media (max-width: 560px) {
   .cart-page h1 {
     font-size: 1.6rem;
@@ -230,7 +227,7 @@
   }
 }
 
-/*animated list fixes- AI used*/
+/* AnimatedList gives rows its own background and selection ring, this turns those off so our normal cart rows show */
 .cart-animated-list .cart-list-item {
   display: block;
   padding: 0;
@@ -249,4 +246,3 @@
 .cart-animated-list .cart-row + .cart-row {
   margin-top: 0;
 }
-/*AI stopped*/

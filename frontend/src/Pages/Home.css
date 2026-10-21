@@ -29,14 +29,14 @@
   min-height: 36rem;
 }
 
-/* item tiles */
+/* item tiles, 2 per row inside the inventory box */
 .home-inventory-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.25rem;
 }
 
-/* fixes index.css "a" styles */
+/* index.css styles every link like the old navbar tiles, so the item tiles reset those styles */
 .home-page .home-item-card {
   display: flex;
   flex-direction: column;
@@ -52,6 +52,7 @@
 }
 
 .home-item-preview {
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,8 +95,6 @@
   transform: scale(0.97);
 }
 
-/*play game button- AI used*/
-
 .home-page .home-play-game {
   display: block;
   width: auto;
@@ -111,10 +110,6 @@
   transform: scale(0.97);
 }
 
-/*AI stopped*/
-
-/*react bits stuff- AI used*/
-
 .home-embers {
   position: fixed;
   inset: 0;
@@ -129,9 +124,7 @@
   background: white;
 }
 
-/*AI stopped*/
-
-/* AI support button in the corner */
+/* support helper sits fixed in the bottom right corner, the panel opens above the button */
 .home-support {
   position: fixed;
   right: 1.5rem;
@@ -194,7 +187,7 @@
   color: #0e0e0e;
 }
 
-/* phones */
+/* phones: the inventory and to do list stack on top of each other instead of side by side */
 @media (max-width: 560px) {
   .home-page {
     grid-template-columns: 1fr;

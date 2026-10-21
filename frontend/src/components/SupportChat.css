@@ -1,6 +1,5 @@
-/*AI support chat styles- AI used*/
 
-/* message list scrolls on its own */
+/* the message list scrolls on its own so the helper panel doesnt get huge */
 .support-chat__messages {
   display: flex;
   flex-direction: column;
@@ -13,7 +12,7 @@
   background: #0e0e0e;
 }
 
-/* chat bubbles, yours are yellow */
+/* chat bubbles, yours go on the right in yellow, the helper's go on the left in gray */
 .home-page .support-chat__bubble {
   max-width: 85%;
   margin: 0;
@@ -47,7 +46,7 @@
   color: #ffdd00;
 }
 
-/* type box + send button */
+/* type box and send button side by side, the box stretches to fill the space */
 .support-chat__form {
   display: flex;
   gap: 0.5rem;
@@ -83,4 +82,3 @@
   cursor: default;
 }
 
-/*AI stopped*/

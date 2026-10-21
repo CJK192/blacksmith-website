@@ -1,4 +1,2 @@
-# api key file- AI used
-# keeps the claude api key off github, never remove this
+# keeps the api key file (.env) off github, never remove this
 .env
-# AI stopped

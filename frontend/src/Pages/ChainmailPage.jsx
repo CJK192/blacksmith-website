@@ -1,19 +1,17 @@
 import { useState } from 'react';
 import { useCart } from '../CartContext';
 import { itemImages } from '../itemImages';
-// react bits- AI used
 import GlareHover from '../components/reactbits/GlareHover';
 import ShinyText from '../components/reactbits/ShinyText';
-// AI stopped
 
 function ChainmailPage() {
-  const { addToCart } = useCart(); {/*opens the shared cart*/}
+  const { addToCart } = useCart(); {/*grabs addToCart from the shared cart so the button can add this item*/}
   const price = "420.00"; // add price here
   const [selectedColor, setSelectedColor] = useState('Black'); {/*sets default color*/}
 
   const colors = ['Black', 'Red', 'Blue', 'Silver', 'Gold']; {/*available colors*/}
 
-  const colorImages = itemImages['Chainmail']; {/*pictures for each color*/}
+  const colorImages = itemImages['Chainmail']; {/*this item's 5 pictures from itemImages.js, the one shown matches the color you pick*/}
 
   const imageUrl = colorImages[selectedColor];
 
@@ -21,7 +19,7 @@ function ChainmailPage() {
     <div style={{ display: 'flex', gap: '2rem' }}> {/*display flex, gap 2rem splits page in half*/}
 
       <div style={{ flex: 1 }}> {/*take up half of the page*/}
-      {/*shine on picture- AI used*/}
+      {/* GlareHover sweeps a gold shine across the picture when you hover it */}
       <GlareHover width="100%" height="auto" background="white" borderRadius="8px" glareColor="#ffb300" glareOpacity={0.5} blendMode="multiply">
       <div style={{
         width: '100%',
@@ -39,15 +37,13 @@ function ChainmailPage() {
         )}
       </div>
       </GlareHover>
-      {/*AI stopped*/}
     </div>
 
     {/*text*/}
     <div style={{ flex: 1 }}>
       <h1>Chainmail</h1> {/*item name*/}
-      {/*shiny price- AI used*/}
+      {/* ShinyText runs a gold shine across the price */}
       <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#ea1313ff', marginBottom: '2rem' }}><ShinyText text={'$' + price} color='#ea1313ff' shineColor='#ffdd00' speed={3} /></p>
-      {/*AI stopped*/}
 
 {/*Color Options- AI used*/}
       <div style={{ marginBottom: '2rem' }}>

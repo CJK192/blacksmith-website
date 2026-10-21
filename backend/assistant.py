@@ -1,5 +1,4 @@
-# AI support helper server- AI used
-# runs separate from myApp.py so cole's to do list server isnt touched
+# support helper server. it runs on its own port (5001) so cole's to do list server isnt touched
 # start it with: flask --app assistant run --host=0.0.0.0 --port=5001
 
 import os
@@ -9,13 +8,13 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 from ollama import Client, ResponseError
 
-# loads the api key from backend/.env (that file never goes on github)
+# load_dotenv reads backend/.env so the api key never has to be written in the code
 load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
 
 app = Flask(__name__)
 CORS(app)
 
-# ollama cloud, the key and model come from backend/.env
+# connects to ollama cloud with the key, the model can be changed in .env
 OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL") or "gemma4:31b"
 client = Client(
     host="https://ollama.com",
@@ -39,16 +38,16 @@ What you can't do: you can't look up, change or cancel orders, take payments, or
 
 Keep replies short, a few sentences at most, in plain text with no markdown or lists, since they show up in a small chat bubble. If someone asks about something unrelated to the shop, politely let them know you can only help with Gunter's Blacksmithing."""
 
-MAX_HISTORY = 20       # only send the last 20 messages
-MAX_MESSAGE_LEN = 1000  # longest message a shopper can send
-
+MAX_HISTORY = 20
+MAX_MESSAGE_LEN = 1000
 
 @app.route("/api/chat", methods=["POST"])
 def chat():
     data = request.get_json(silent=True) or {}
     history = data.get("messages")
 
-    # only accept a list of user/assistant text messages that starts with the user
+    # only let through user/assistant text messages, keep the last 20, cut each one to 1000 characters,
+    # and make sure the chat starts and ends with the user
     if not isinstance(history, list) or not history:
         return jsonify({"error": "No message sent."}), 400
     messages = []
@@ -91,4 +90,3 @@ def chat():
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5001)
 
-# AI stopped

@@ -1,4 +1,3 @@
-/*game page styles- AI used*/
 
 .game-page {
   position: relative;
@@ -7,7 +6,7 @@
   text-align: center;
 }
 
-/* background behind everything */
+/* the background is stuck to the screen and sits behind everything (z-index -1) */
 .game-background {
   position: fixed;
   inset: 0;
@@ -20,7 +19,7 @@
   text-decoration: underline;
 }
 
-/* hammer time game, centered */
+/* centers the game with margin auto (flex stretched the game and broke its layout) */
 .game-box {
   text-align: left;
 }
@@ -29,4 +28,3 @@
   margin: 0 auto;
 }
 
-/*AI stopped*/

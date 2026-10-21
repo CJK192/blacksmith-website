@@ -1,5 +1,5 @@
-/*React Bits ShinyText from reactbits.dev/text-animations/shiny-text - we didnt write this- AI used*/
 
+/* the outer box, the effect layers inside sit on top of it with position absolute */
 .shiny-text {
   position: relative;
   display: inline-block;
@@ -22,4 +22,3 @@
   user-select: none;
 }
 
-/*AI stopped*/

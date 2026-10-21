@@ -1,11 +1,10 @@
-/*navbar styles- AI used*/
 
-/* removes white line above navbar */
+/* index.css puts a white border around the whole page, this takes the top part off so the navbar touches the top */
 body {
   border-top: 0;
 }
 
-/* navbar sticks to the top */
+/* sticky keeps the navbar at the top while you scroll, flex puts the name on the left and the links on the right */
 .site-nav {
   position: sticky;
   top: 0;
@@ -22,7 +21,7 @@ body {
   font-family: var(--font);
 }
 
-/* fixes index.css "a" styles in navbar */
+/* index.css styles every link like the old navbar tiles. this resets that, :where keeps it weak so PillNav's own styles still win */
 :where(.site-nav) a {
   width: auto;
   height: auto;
@@ -167,7 +166,7 @@ html {
   }
 }
 
-/* phones */
+/* phones: thinner bar and smaller name, PillNav turns the links into the menu button on its own */
 @media (max-width: 560px) {
   .site-nav {
     height: 62px;
@@ -183,4 +182,3 @@ html {
   }
 }
 
-/*AI stopped*/

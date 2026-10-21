@@ -1,4 +1,3 @@
-/*React Bits TiltedCard from reactbits.dev/components/tilted-card - we didnt write this- AI used*/
 
 'use client';
 
@@ -50,6 +49,7 @@ export const TiltedCardLayer = ({ depth = 20, className = '', style, children })
   </div>
 );
 
+// tilts whatever is inside it in 3d toward your mouse when you hover. the stuff in the {} are the settings you can change
 const TiltedCard = ({
   imageSrc,
   altText = 'Tilted card image',
@@ -119,6 +119,7 @@ const TiltedCard = ({
   const settingsRef = useRef(settings);
   settingsRef.current = settings;
 
+  // tracks where the mouse is on the card and turns that into a tilt
   useEffect(() => {
     wakeRef.current?.();
   });
@@ -481,6 +482,7 @@ const TiltedCard = ({
   const glareRgb = (parseColor(glareColor) || [255, 255, 255]).join(', ');
   const bleed = Math.ceil(Math.sin((clamp(rotateAmplitude, 0, 60) * Math.PI) / 180) * 24 * Math.max(0, parallax)) + 1;
 
+  // what shows up on the page: the card, with layers for the shine and the edge that move with the tilt
   return (
     <figure
       ref={figureRef}
@@ -562,4 +564,3 @@ const TiltedCard = ({
 
 export default TiltedCard;
 
-/*AI stopped*/

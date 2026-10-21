@@ -1,4 +1,3 @@
-/*React Bits ScrollReveal from reactbits.dev/text-animations/scroll-reveal - we didnt write this- AI used*/
 
 'use client';
 
@@ -61,6 +60,7 @@ const paintPiece = (piece, t, look) => {
   }
 };
 
+// splits the text into words that fade in as you scroll down to them. the stuff in the {} are the settings you can change
 const ScrollReveal = ({
   children,
   scrollContainerRef,
@@ -112,6 +112,7 @@ const ScrollReveal = ({
 
   const [mounted, setMounted] = useState(false);
 
+  // uses gsap ScrollTrigger to tie each word's fade to how far you've scrolled
   useEffect(() => setMounted(true), []);
 
   useIsomorphicLayoutEffect(() => {
@@ -291,6 +292,7 @@ const ScrollReveal = ({
     wordAnimationEnd
   ]);
 
+  // what shows up on the page: each word is its own span so they can fade in separately
   return (
     <h2 ref={containerRef} className={`scroll-reveal ${containerClassName}`} aria-label={text ?? undefined}>
       <span
@@ -306,4 +308,3 @@ const ScrollReveal = ({
 
 export default ScrollReveal;
 
-/*AI stopped*/

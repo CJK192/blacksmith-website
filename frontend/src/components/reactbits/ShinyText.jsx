@@ -1,4 +1,3 @@
-/*React Bits ShinyText from reactbits.dev/text-animations/shiny-text - we didnt write this- AI used*/
 
 'use client';
 
@@ -45,6 +44,7 @@ const blend = (from, to, amount) => {
   return `rgba(${r}, ${g}, ${b}, ${Math.round(alpha * 1000) / 1000})`;
 };
 
+// text with a shine that moves across it. color is the base color and shineColor is the shine. the stuff in the {} are the settings you can change
 const ShinyText = ({
   text,
   children,
@@ -92,6 +92,7 @@ const ShinyText = ({
     disabled
   };
 
+  // moves the shine across the text in a loop
   useEffect(() => {
     syncRef.current?.();
   });
@@ -347,6 +348,7 @@ const ShinyText = ({
     };
   }, []);
 
+  // what shows up on the page: the text, plus a copy behind it for the glow if glow is turned on
   return (
     <span
       ref={rootRef}
@@ -365,4 +367,3 @@ const ShinyText = ({
 
 export default ShinyText;
 
-/*AI stopped*/

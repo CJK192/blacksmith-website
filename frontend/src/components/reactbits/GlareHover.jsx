@@ -1,4 +1,3 @@
-/*React Bits GlareHover from reactbits.dev/animations/glare-hover - we didnt write this- AI used*/
 
 'use client';
 
@@ -32,6 +31,7 @@ const gradient = (color, opacity, variant, softness) => {
 
 const ease = t => (1 - Math.cos(Math.PI * t)) / 2;
 
+// wraps something (our item picture) and sweeps a shine across it when you hover. the stuff in the {} are the settings you can change
 const GlareHover = ({
   width = 'auto',
   height = 'auto',
@@ -65,6 +65,7 @@ const GlareHover = ({
   const settingsRef = useRef(settings);
   settingsRef.current = settings;
 
+  // listens for the mouse going in and out and plays the shine animation
   useEffect(() => {
     const root = rootRef.current;
     const glare = glareRef.current;
@@ -260,6 +261,7 @@ const GlareHover = ({
   const glare = gradient(glareColor, glareOpacity, variant, softness);
   const rim = gradient(glareColor, Math.min(1, glareOpacity * 1.8), variant, softness);
 
+  // what shows up on the page: the picture goes inside, the glare layers sit on top and are what actually shine
   return (
     <div
       ref={rootRef}
@@ -291,4 +293,3 @@ const GlareHover = ({
 
 export default GlareHover;
 
-/*AI stopped*/

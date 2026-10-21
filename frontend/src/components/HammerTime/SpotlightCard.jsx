@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useRef } from 'react';
@@ -46,6 +47,7 @@ const falloff = (color, softness) => {
   return list.join(', ');
 };
 
+// a box with a soft glow that follows your mouse. it goes around the hammer time game. the stuff in the {} are the settings you can change
 const SpotlightCard = ({
   children,
   className = '',
@@ -92,6 +94,7 @@ const SpotlightCard = ({
     wakeRef.current?.();
   });
 
+  // follows the mouse and moves the glow, then fades it out when the mouse leaves
   useEffect(() => {
     const root = rootRef.current;
     const light = lightRef.current;
@@ -264,6 +267,7 @@ const SpotlightCard = ({
     };
   }, []);
 
+  // what shows up on the page: the game goes inside, the light and border glow layers sit around it
   return (
     <div
       ref={rootRef}
@@ -286,3 +290,4 @@ const SpotlightCard = ({
 };
 
 export default SpotlightCard;
+

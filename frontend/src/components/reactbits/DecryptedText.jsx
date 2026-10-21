@@ -1,4 +1,3 @@
-/*React Bits DecryptedText from reactbits.dev/text-animations/decrypted-text - we didnt write this- AI used*/
 
 'use client';
 
@@ -84,6 +83,7 @@ const flipFrames = (angle, opacity) => [
   { transform: 'perspective(4em) translateZ(-0.42em) rotateX(0deg) translateZ(0.42em)', opacity: 1 }
 ];
 
+// shows random letters first, then swaps them to the real text one letter at a time. the stuff in the {} are the settings you can change
 export default function DecryptedText({
   text,
   speed = 50,
@@ -383,6 +383,7 @@ export default function DecryptedText({
     engine.paint();
   }, [animateOn, chars]);
 
+  // runs the scramble on a timer, each tick changes the letters until the real text is showing
   useEffect(
     () => () => {
       clearInterval(timerRef.current);
@@ -567,6 +568,7 @@ export default function DecryptedText({
               {group.letters.map(index => {
                 const char = chars[index];
                 const revealed = frame.revealed[index] ?? true;
+                // what shows up on the page: each letter is its own span so the real ones and the scrambled ones can look different
                 return (
                   <span
                     key={index}
@@ -595,4 +597,3 @@ export default function DecryptedText({
   );
 }
 
-/*AI stopped*/

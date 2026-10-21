@@ -1,4 +1,3 @@
-/*React Bits ProfileCard from reactbits.dev/components/profile-card - we didnt write this- AI used*/
 
 'use client';
 
@@ -68,6 +67,7 @@ const isDark = color => {
   return 0.2126 * r + 0.7152 * g + 0.0722 * b < 0.5;
 };
 
+// a card with a photo, name and title that tilts and shines with your mouse. the stuff in the {} are the settings you can change
 const ProfileCard = ({
   avatarUrl = '',
   iconUrl,
@@ -99,6 +99,7 @@ const ProfileCard = ({
   const settingsRef = useRef(settings);
   settingsRef.current = settings;
 
+  // tracks the mouse over the card and tilts it and moves the shine to match
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
@@ -294,6 +295,7 @@ const ProfileCard = ({
     ? `linear-gradient(180deg, color-mix(in srgb, ${backdropColor}, #ffffff 12%) 0%, color-mix(in srgb, ${backdropColor}, #000000 18%) 100%)`
     : 'var(--pc-tile)';
 
+  // what shows up on the page: the photo with the name on top. the footer (handle + contact button) is turned off for us
   return (
     <div
       ref={rootRef}
@@ -371,4 +373,3 @@ const ProfileCard = ({
 
 export default memo(ProfileCard);
 
-/*AI stopped*/

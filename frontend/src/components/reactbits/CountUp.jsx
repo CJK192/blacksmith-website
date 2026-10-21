@@ -1,4 +1,3 @@
-/*React Bits CountUp from reactbits.dev/text-animations/count-up - we didnt write this- AI used*/
 
 'use client';
 
@@ -126,6 +125,7 @@ const buildRoll = (a, b, spin, { compact, decimals, places, separator }) => {
   return { slots, columns, label };
 };
 
+// animates a number from where it was to the new value (to). we use it for the cart total. the stuff in the {} are the settings you can change
 export default function CountUp({
   to,
   from = 0,
@@ -203,6 +203,7 @@ export default function CountUp({
     }
   }, [mode, startValue, formatValue]);
 
+  // sets the starting number and starts counting when the number shows up or changes
   useEffect(() => {
     if (!active || !startWhen) return;
     startedRef.current = true;
@@ -390,6 +391,7 @@ export default function CountUp({
                   </span>
                 );
               }
+              // what shows up on the page: shows the number as plain text
               return (
                 <span
                   key={index}
@@ -450,4 +452,3 @@ export default function CountUp({
   );
 }
 
-/*AI stopped*/

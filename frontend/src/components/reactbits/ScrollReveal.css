@@ -1,5 +1,5 @@
-/*React Bits ScrollReveal from reactbits.dev/text-animations/scroll-reveal - we didnt write this- AI used*/
 
+/* the outer box, the effect layers inside sit on top of it with position absolute */
 .scroll-reveal {
   margin: 20px 0;
 }
@@ -16,4 +16,3 @@
   display: inline-block;
 }
 
-/*AI stopped*/

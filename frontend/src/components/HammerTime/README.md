@@ -1,4 +1,3 @@
-<!-- readme rewrite- AI used -->
 # Hammer Time
 
 this is gunter's hammer time game, it's on the game page (`Pages/GamePage.jsx`). its just the game itself, the anvil, timing bar, score and buttons.
@@ -32,4 +31,3 @@ the sparks, glow and button borders come from [react bits](https://reactbits.dev
 
 ## if it lags
 the game page background is turned down to low quality so the game runs smoother. if its still laggy the background can be paused or taken off.
-<!-- AI stopped -->

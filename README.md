@@ -78,7 +78,7 @@ We used **AI (Claude, by Anthropic)** to help build parts of this project, mostl
 - adding the React Bits effects
 - some styling and fixing stuff for phones
 
-Anywhere AI was used is marked in the code with `AI used` and `AI stopped` comments so you can see exactly which parts it helped with. We also used it to explain code to us so we actually understood what we were putting in.
+We also used it to explain code to us so we actually understood what we were putting in.
 
 ### React Bits
 A lot of the effects come from **[React Bits](https://reactbits.dev)** by David Haz. We used: Click Spark, Pixel Snow, Tilted Card, Decrypted Text, Star Border, Glare Hover, Shiny Text, Profile Card, Scroll Reveal, Animated List, Count Up, Faulty Terminal, Pill Nav and Spotlight Card. They're in `frontend/src/components/reactbits/` and each file says which one it is. React Bits has its own license (MIT + Commons Clause), there's a copy in `frontend/src/components/HammerTime/REACT-BITS-LICENSE.md`.

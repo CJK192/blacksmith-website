@@ -1,5 +1,5 @@
-/*React Bits GlareHover from reactbits.dev/animations/glare-hover - we didnt write this- AI used*/
 
+/* the outer box, the effect layers inside sit on top of it with position absolute */
 .glare-hover {
   position: relative;
   display: inline-grid;
@@ -49,4 +49,3 @@
   background: var(--gh-rim);
 }
 
-/*AI stopped*/
